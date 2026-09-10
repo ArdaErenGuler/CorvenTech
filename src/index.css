@@ -50,14 +50,6 @@
   background: radial-gradient(circle at 50% 30%, rgb(0 180 216 / 0.12) 0%, transparent 68%);
 }
 
-@utility cta-surface {
-  background: radial-gradient(circle at 50% 50%, #0f2a38 0%, #0a1220 100%);
-}
-
-@utility cta-halo {
-  background: radial-gradient(circle, rgb(0 180 216 / 0.08) 0%, transparent 60%);
-}
-
 /* Giriş animasyonları (modal, toast, mobil çekmece) */
 @utility animate-modal-in {
   animation: modal-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;

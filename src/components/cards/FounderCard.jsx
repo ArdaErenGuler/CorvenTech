@@ -1,57 +1,59 @@
 import Icon from '../ui/Icon';
-import Chip from '../ui/Chip';
 import { CARD } from '../ui/Card';
 
-const LINK_LABELS = { github: 'GitHub', linkedin: 'LinkedIn' };
+const PROFILES = [
+  { key: 'linkedin', label: 'LinkedIn' },
+  { key: 'github', label: 'GitHub' },
+];
 
-/** Kurucu kartı: baş harf avatarı, rol, odak alanları, biyografi ve profil bağlantıları. */
+/** "Arda Eren Güler" → "AG" (ilk ve son adın baş harfleri). */
+function initialsOf(name) {
+  const parts = name.trim().split(/\s+/);
+  const last = parts.length > 1 ? parts[parts.length - 1][0] : '';
+  return (parts[0][0] + last).toLocaleUpperCase('tr-TR');
+}
+
+/** Ekip kartı: fotoğraf (yoksa baş harfler), ad, rol ve profil bağlantıları. */
 export default function FounderCard({ founder }) {
-  const { name, role, initials, focus, bio, links } = founder;
-  const linkEntries = Object.entries(links).filter(([, url]) => url);
+  const { name, role, photo, links } = founder;
+  const profiles = PROFILES.filter(({ key }) => links[key]);
 
   return (
-    <article className={`flex h-full flex-col p-8 ${CARD}`}>
-      <div className="flex items-start justify-between gap-4">
-        <span
-          aria-hidden="true"
-          className="grid size-16 place-items-center rounded-2xl bg-accent font-display text-xl font-extrabold text-ink"
-        >
-          {initials}
-        </span>
-        {linkEntries.length > 0 && (
-          <ul className="flex gap-2" aria-label={`${name} profilleri`}>
-            {linkEntries.map(([key, url]) => (
-              <li key={key}>
-                <a
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${name} ${LINK_LABELS[key] ?? key}`}
-                  title={LINK_LABELS[key] ?? key}
-                  className="grid size-10 place-items-center rounded-full border border-line bg-surface-2 text-muted transition-colors hover:border-line-accent hover:text-accent"
-                >
-                  <Icon name={key} className="size-4" strokeWidth={2} />
-                </a>
-              </li>
-            ))}
-          </ul>
+    <article className={`flex h-full flex-col p-5 ${CARD}`}>
+      <div className="grid aspect-[4/3] place-items-center overflow-hidden rounded-xl border border-line bg-ink-soft">
+        {photo ? (
+          <img src={photo} alt={name} loading="lazy" className="size-full object-cover" />
+        ) : (
+          <span
+            aria-hidden="true"
+            className="grid size-20 place-items-center rounded-2xl bg-accent font-display text-2xl font-extrabold text-ink"
+          >
+            {initialsOf(name)}
+          </span>
         )}
       </div>
 
-      <h3 className="mt-6 font-display text-xl font-bold">{name}</h3>
-      <p className="mt-1 text-sm font-medium text-accent">{role}</p>
+      <h3 className="mt-5 text-center font-display text-lg font-bold">{name}</h3>
+      <p className="mt-0.5 text-center text-sm text-accent">{role}</p>
 
-      {focus.length > 0 && (
-        <ul className="mt-4 flex flex-wrap gap-2" aria-label="Odak alanları">
-          {focus.map((item) => (
-            <Chip key={item} as="li">
-              {item}
-            </Chip>
+      {profiles.length > 0 && (
+        <ul className="mt-5 flex flex-wrap justify-center gap-2.5">
+          {profiles.map(({ key, label }) => (
+            <li key={key}>
+              <a
+                href={links[key]}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${name} ${label} profili`}
+                className="inline-flex items-center gap-2 rounded-full border border-line-strong bg-surface-2 px-4 py-2 text-sm font-medium text-body transition-colors hover:border-line-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              >
+                <Icon name={key} className="size-4" strokeWidth={2} />
+                {label}
+              </a>
+            </li>
           ))}
         </ul>
       )}
-
-      <p className="mt-5 text-sm leading-relaxed text-muted">{bio}</p>
     </article>
   );
 }

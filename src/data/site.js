@@ -1,6 +1,6 @@
 /**
  * CorvenTech — site içerik modeli
- * Tüm metinler, girişimler, çözümler ve kişiler burada tutulur; bileşenler yalnızca bu veriyi render eder.
+ * Tüm metinler, girişimler, çözümler ve ekip bilgileri burada tutulur; bileşenler yalnızca bu veriyi render eder.
  * `icon` alanları components/ui/Icon.jsx içindeki ikon adlarından biri olmalıdır.
  */
 
@@ -9,249 +9,305 @@ export const company = {
   brandSub: 'Yazılım & Girişim',
   motto: 'Fikirden koda, koddan ürüne.',
   description:
-    'İki yazılımcının ortak girişimlerini tek çatı altında toplayan, fikirleri ölçeklenebilir ürünlere dönüştüren teknoloji şirketi.',
-  // TODO: Gerçek kurumsal e-posta adresiyle değiştirin.
-  email: 'iletisim@corventech.com',
-  location: 'Ankara, Türkiye',
-  // TODO: Şirket GitHub organizasyonu açıldığında adresi güncelleyin.
-  social: [
-    { id: 'github', label: 'GitHub', url: 'https://github.com/ArdaErenGuler', icon: 'github' },
-    { id: 'linkedin', label: 'LinkedIn', url: 'https://www.linkedin.com/in/ardaerenglr', icon: 'linkedin' },
-  ],
-  // Formspree form endpoint'i (örn. "https://formspree.io/f/xxxxxxxx").
-  // Boş bırakılırsa iletişim formu, mesajı hazır bir e-posta olarak kullanıcının posta uygulamasında açar.
-  formspreeEndpoint: '',
+    'İki yazılımcının ortak çatısı. Kendi girişimlerimizi geliştiriyor, fikirleri çalışan ürünlere dönüştürüyoruz.',
+  email: 'corventech1@gmail.com',
+  instagram: { handle: '@corventech.tr', url: 'https://www.instagram.com/corventech.tr/' },
 };
+
+/** İletişim kanalları: iletişim bölümü, iletişim penceresi ve footer bu listeyi kullanır. */
+export const contactChannels = [
+  {
+    id: 'email',
+    label: 'E-posta',
+    value: company.email,
+    url: `mailto:${company.email}`,
+    icon: 'mail',
+    action: 'E-posta Gönder',
+    copyable: true,
+  },
+  {
+    id: 'instagram',
+    label: 'Instagram',
+    value: company.instagram.handle,
+    url: company.instagram.url,
+    icon: 'instagram',
+    action: "Instagram'a Git",
+    external: true,
+  },
+];
 
 export const navLinks = [
   { label: 'Girişimlerimiz', href: '#girisimlerimiz' },
   { label: 'Çözümlerimiz', href: '#cozumlerimiz' },
   { label: 'Süreç', href: '#surec' },
-  { label: 'Kurucular', href: '#kurucular' },
+  { label: 'Hakkımızda', href: '#hakkimizda' },
   { label: 'İletişim', href: '#iletisim' },
 ];
 
 export const hero = {
-  badge: 'İki geliştirici · İki girişim · Tek çatı',
   title: {
     lead: 'Fikirleri Gerçeğe Dönüştüren',
     highlight: 'Kod Mimarisi',
   },
   description:
-    'Envanter ve finans yönetiminden öğrenci ağlarına; farklı alanlardaki girişimlerimizi aynı mühendislik disipliniyle tasarlıyor, geliştiriyor ve büyütüyoruz.',
+    'Stok takibinden öğrenci platformlarına, site yönetim panellerinden kurumsal web sitelerine kadar farklı alanlarda ürünler geliştiriyoruz.',
   primaryCta: { label: 'Girişimlerimizi Keşfet', href: '#girisimlerimiz' },
-  secondaryCta: { label: 'Bizimle Çalışın' },
-  stats: [
-    { value: '02', label: 'Aktif girişim' },
-    { value: '02', label: 'Kurucu geliştirici' },
-    { value: '03', label: 'Platform: web, mobil, API' },
-  ],
+  secondaryCta: { label: 'İletişime Geç' },
 };
 
 export const sections = {
   ventures: {
     icon: 'layers',
     tag: 'Girişimlerimiz',
-    title: 'Tek çatı altında iki bağımsız ürün',
+    title: 'Geliştirdiğimiz ürünler ve projeler',
     description:
-      'Her girişimimiz kendi pazarına odaklanan bağımsız bir ürün; hepsi aynı mühendislik disipliniyle tasarlanıp geliştiriliyor.',
+      'Kendi ürünlerimiz ve hazırladığımız web siteleri. Sitelerini ziyaret edebilir, detaylarına göz atabilirsiniz.',
   },
   solutions: {
     icon: 'code',
     tag: 'Çözümlerimiz',
-    title: 'Girişimlerimizden süzülen mühendislik',
+    title: 'Neler yapıyoruz?',
     description:
-      'Kendi ürünlerimizi geliştirirken kurduğumuz modüler altyapıları, işletmenize özel çözümlere dönüştürüyoruz.',
+      'Kendi ürünlerimizi geliştirirken edindiğimiz deneyimi, işletmenize uygun çözümlere dönüştürüyoruz.',
   },
   process: {
     icon: 'git-branch',
-    tag: 'Nasıl Çalışıyoruz',
-    title: 'Keşiften yayına dört adım',
-    description:
-      'Her projede aynı disiplin: önce anlamak, sonra mimariyi kurmak, ardından test ederek geliştirmek ve yayında da yanınızda kalmak.',
+    tag: 'Süreç',
+    title: 'Nasıl çalışıyoruz?',
+    description: 'Her projede aynı dört adımı izliyoruz. Böylece her aşamada neler olduğunu bilirsiniz.',
   },
-  techStack: {
-    icon: 'server',
-    tag: 'Teknolojiler',
-    title: 'Ürünlerimizde kullandığımız yığın',
-    description:
-      'Her aracı bir projede üretimde kullandık; listedeki hiçbir teknoloji sadece vitrin için değil.',
-  },
-  founders: {
+  about: {
     icon: 'users',
-    tag: 'Kurucular',
-    title: 'İki geliştirici, ortak bir çatı',
+    tag: 'Ekibimiz',
+    title: 'Hakkımızda',
     description:
-      'CorvenTech, iki yazılımcının bağımsız girişimlerini aynı mühendislik kültürü altında birleştirmesiyle kuruldu.',
-  },
-  cta: {
-    title: 'Bir fikriniz mi var? Birlikte koda dökelim.',
-    description:
-      'Yeni bir girişim, kurumsal bir yazılım ya da mevcut sisteminizin yeniden yapılandırılması; ihtiyacınızı dinleyip doğru mimariyi birlikte kuralım.',
-    button: 'Projenizi Anlatın',
+      'CorvenTech, kendi girişimlerini geliştiren iki yazılımcının ortak çatısı. Fikirleri çalışan ve kullanışlı ürünlere dönüştürmeyi seviyoruz.',
   },
   contact: {
+    icon: 'mail',
     tag: 'İletişim',
     title: 'Bize ulaşın',
     description:
-      'İş birliği teklifleri, proje talepleri veya girişimlerimiz hakkında sorularınız için e-posta gönderebilir ya da iletişim formunu kullanabilirsiniz.',
+      'Sorularınız, önerileriniz ve iş birlikleri için e-posta gönderebilir ya da Instagram üzerinden yazabilirsiniz.',
     modalTitle: 'Bizimle İletişime Geçin',
-    modalDescription:
-      'Formu doldurun, en kısa sürede size dönüş yapalım. Dilerseniz doğrudan e-posta da gönderebilirsiniz.',
-    subjects: ['Yeni proje talebi', 'İş birliği', 'GülerDepo hakkında', 'dersmate hakkında', 'Diğer'],
+    modalDescription: 'Size uygun kanaldan yazın, en kısa sürede dönüş yapalım.',
   },
 };
 
+/** Girişim türleri: kart etiketi ve filtre sekmeleri bu adları kullanır. */
+export const ventureTypes = {
+  product: 'Ürün',
+  website: 'Web Sitesi',
+};
+
+export const ventureFilters = [
+  { id: 'all', label: 'Tümü' },
+  { id: 'product', label: 'Ürünler' },
+  { id: 'website', label: 'Web Siteleri' },
+];
+
 /**
- * Girişimler.
- * `links.github` doluysa kartta ve modalda kaynak bağlantısı gösterilir; `links.website` eklenirse site bağlantısı da çıkar.
+ * Girişimler ve projeler.
+ * Kartta: type, category, name, description ve url.
+ * Detay penceresinde: tagline, longDescription, platform, status, modules ve stack.
+ * `linkLabel` verilmezse detay penceresindeki düğme "Siteyi Ziyaret Et" yazar.
  */
 export const ventures = [
   {
     id: 'gulerdepo',
+    type: 'product',
     name: 'GülerDepo',
-    category: 'Envanter Yönetimi',
-    tagline: 'Stok, finans ve hukuki süreçler tek panelde',
+    category: 'Stok ve Envanter Yönetimi',
+    tagline: 'İşletmeye özel stok, maliyet ve harcama takibi',
     description:
-      'Stok hesabı, finans ve avukat modüllerini tek panelde birleştiren, tarayıcı tabanlı envanter yönetim sistemi.',
+      'İşletmelerin stoğunu, maliyetini ve günlük harcamalarını takip ettiği web uygulaması. Finans ve avukat modülleri de içeriyor.',
     longDescription:
-      'GülerDepo; küçük ve orta ölçekli işletmelerin stok giriş-çıkışlarını, cari hesaplarını, faturalarını ve kasa hareketlerini tek bir yönetim panelinden takip etmesi için geliştirildi. Modüler yapısı sayesinde yalnızca ihtiyaç duyulan bölümler açılır; raporlama ekranları işletmenin anlık durumunu özetler.',
+      'GülerDepo, işletmelerin stok, maliyet ve harcamalarını tek yerden takip etmesi için geliştirildi. Her işletme kendi paneline kullanıcı adı ve şifreyle girer. Panel telefona da uyumludur; sahada hızlıca stok düşülebilir.',
     icon: 'package',
-    platform: 'Web (tarayıcı tabanlı panel)',
-    status: 'Aktif',
+    platform: 'Web paneli (mobil uyumlu)',
+    status: 'Yayında',
     modules: [
-      { name: 'Stok Hesabı', description: 'Ürün giriş-çıkışları, stok seviyeleri ve stok raporları.' },
-      { name: 'Finans', description: 'Kasa hareketleri, gelir-gider ve bütçe takibi.' },
-      { name: 'Avukat Modülü', description: 'Hukuki süreç ve dosya takibi.' },
+      { name: 'Maliyet hesabı', description: 'Her ürünün kilo, metre ya da adet başına maliyetini hesaplar.' },
+      { name: 'Günlük harcama raporu', description: 'Seçilen günün bütün harcamalarını ve toplam tutarı tek ekranda gösterir.' },
+      { name: 'Geçmiş tarihli kayıt', description: 'Unutulan günlerin alış ve kullanım kayıtları sonradan doğru tarihle girilebilir.' },
+      { name: 'Telefondan hızlı işlem', description: 'Birden fazla ürün tek tuşla stoktan düşülebilir.' },
     ],
-    features: ['Cari hesap takibi', 'Fatura yönetimi', 'Kasa & bütçe', 'Raporlama', 'Not & hatırlatma'],
-    stack: ['PHP', 'SQL', 'HTML / CSS / JS'],
-    links: {
-      github: 'https://github.com/ArdaErenGuler/gulerdepo',
-      website: null,
-    },
+    stack: ['PHP', 'MySQL', 'Bootstrap'],
+    url: 'https://www.gulerdepo.com',
   },
   {
     id: 'dersmate',
+    type: 'product',
     name: 'dersmate',
-    category: 'Öğrenci Ağı Platformu',
-    tagline: 'Öğrencilerin birbirine ders verdiği akran ağı',
+    category: 'Öğrenci Sosyal Ağı',
+    tagline: 'Öğrencilerin buluştuğu, paylaştığı ve birbirine yardım ettiği sosyal ağ',
     description:
-      'YKS eşleştirme, dijital kurs ve forum altyapısıyla öğrencileri aynı ağda buluşturan web ve mobil platform.',
+      'Öğrenciler için sosyal ağ ve forum. Soru sorulur, kaynak paylaşılır, arkadaş edinilir; bilen öğrenci bilmeyene konuyu anlatır.',
     longDescription:
-      'dersmate, öğrencilerin iyi oldukları konuyu anlatıp ihtiyaç duydukları dersi ücretsiz aldığı bir akran öğrenme platformu. Para transferi yoktur; ders anlatan taraf puan kazanır ve bu puan seviyeye dönüşür. Modüler monolit mimarisi, modül başına ayrı veritabanı şeması ve gerçek zamanlı sohbet altyapısıyla web ve mobilde aynı iş kurallarını paylaşır.',
+      'dersmate, öğrencileri aynı yerde buluşturan bir sosyal ağ. Öğrenciler toplulukta soru sorar, kaynak ve deneyim paylaşır, yeni arkadaşlar edinip sohbet eder. Bir konuda zorlanan öğrenci, o konuyu bilen başka bir öğrenciyle buluşup konuyu ondan dinleyebilir. Şimdilik YKS (TYT ve AYT) öğrencilerine odaklanıyor.',
     icon: 'graduation',
-    platform: 'Web + iOS / Android',
-    status: 'Aktif geliştirme',
+    platform: 'Web (mobil uygulama yakında)',
+    status: 'Yayında',
     modules: [
-      { name: 'YKS Eşleştirme', description: 'TYT / AYT ders ve konu bazlı akran eşleştirme.' },
-      { name: 'Dijital Kurs', description: 'Planlanmış dersler, takvim ve kanıt akışıyla ders takibi.' },
-      { name: 'Forum', description: 'Öneri kartları, tartışma ve paylaşım akışı.' },
+      { name: 'Topluluk (forum)', description: 'Sınav, soru ve kaynak gibi başlıklarda öğrenciler yazışır ve birbirine yardım eder.' },
+      { name: 'Keşfet', description: 'Derse, konuya ya da üniversiteye göre diğer öğrenciler bulunur.' },
+      { name: 'Sohbet', description: 'Arkadaş olunan öğrencilerle birebir mesajlaşılır.' },
+      { name: 'Birbirine ders anlatma', description: 'Bir konuyu bilen öğrenci, o konuda zorlanan arkadaşına anlatır.' },
     ],
-    features: ['Puan ekonomisi', 'Canlı sohbet (SignalR)', 'Branş rozetleri', 'Moderasyon & güvenlik', 'Web + mobil istemci'],
-    stack: ['.NET 8', 'PostgreSQL 16', 'Redis 7', 'React + Vite', 'Tailwind CSS', 'React Native (Expo)'],
-    links: {
-      github: 'https://github.com/Vellhale/dersmate',
-      mobile: 'https://github.com/Vellhale/dersmate-mobil',
-      website: null,
-    },
+    stack: ['React', 'Vite', 'Tailwind CSS', '.NET 8', 'PostgreSQL', 'Redis', 'SignalR'],
+    url: 'https://www.dersmate.com',
+  },
+  {
+    id: 'siteflowtr',
+    type: 'product',
+    name: 'SiteFlowTR',
+    category: 'Site Yönetim Paneli',
+    tagline: 'Web sitenizi kod yazmadan düzenleyin',
+    description:
+      'Var olan bir web sitesini tarayıcıdan düzenlemeye yarayan panel. Yazılar, görseller, SEO ayarları ve takip kodları tek yerden değişir.',
+    longDescription:
+      'SiteFlowTR, site sahiplerinin web sitelerini kod bilmeden güncellemesi için geliştirildi. Site panele bir kez bağlanır; sonra sayfalar, görseller ve SEO ayarları buradan düzenlenir. Kullanmak için giriş yapmak gerekir.',
+    icon: 'edit',
+    platform: 'Web paneli',
+    status: 'Yayında',
+    modules: [
+      { name: 'Sayfa düzenleyici', description: 'Sayfa panelde açılır; yazı ve görseller buradan değiştirilir, hazır bölümler eklenir.' },
+      {
+        name: 'SEO ayarları',
+        description: 'Başlık, açıklama ve görsel etiketleri düzenlenir. Panel sayfaya 100 üzerinden puan verir ve site haritası oluşturur.',
+      },
+      { name: 'Sayfa yedekleri', description: 'Sayfanın eski sürümleri listelenir, istenirse eski sürüme dönülür.' },
+      { name: 'Takip kodları', description: 'Google Analytics, Google Tag Manager, Meta ve TikTok kodları panelden siteye eklenir.' },
+    ],
+    stack: ['React 19', 'Vite', 'Node.js', 'Express'],
+    url: 'https://panel.broxdigital.com',
+    linkLabel: 'Panele Git',
+  },
+  {
+    id: 'mygen',
+    type: 'website',
+    name: 'My-Gen Biyoteknoloji',
+    category: 'Ürün Kataloğu Sitesi',
+    tagline: 'Laboratuvar ürünlerini bulup fiyat sorabileceğiniz katalog',
+    description:
+      "İzmir'deki My-Gen Biyoteknoloji için hazırlanan laboratuvar ürünleri kataloğu. Ürün arama, karşılaştırma ve fiyat sorma formu içeriyor.",
+    longDescription:
+      "My-Gen Biyoteknoloji'nin ELISA kitleri, antikorlar ve proteinler gibi laboratuvar ürünlerini listeleyen katalog sitesi. Ziyaretçi ürün arayabiliyor, ürünleri karşılaştırabiliyor ve formla fiyat sorabiliyor. Sitede satış yapılmıyor.",
+    icon: 'flask',
+    platform: 'Web sitesi',
+    status: 'Yayında',
+    modules: [
+      { name: 'Ürün arama', description: 'Gen adı ya da ürün kodu yazarken öneriler çıkar; sonuçlar kategoriye göre daraltılır.' },
+      { name: 'Ürün karşılaştırma', description: 'Ürünler bir listeye eklenip yan yana karşılaştırılır.' },
+      { name: 'Ürün sayfaları', description: 'Her üründe teknik bilgiler, görseller ve PDF kullanım kılavuzu bulunur.' },
+      { name: 'Fiyat sorma formu', description: 'Fiyatlar sitede yazmaz; ziyaretçi ürün sayfasındaki formla fiyat sorar.' },
+    ],
+    stack: ['Node.js', 'Express', 'Tailwind CSS', 'JavaScript'],
+    url: 'https://www.mygenbio.com.tr',
+  },
+  {
+    id: 'broxdigital',
+    type: 'website',
+    name: 'Brox Digital',
+    category: 'Ajans Tanıtım Sitesi',
+    tagline: 'Dijital pazarlama ajansı için tek sayfalık tanıtım sitesi',
+    description:
+      'Dijital pazarlama ajansı Brox Digital için hazırlanan tanıtım sitesi. Reklam, web sitesi ve SEO hizmetlerini tek sayfada anlatıyor.',
+    longDescription:
+      'Brox Digital; Google, Meta, TikTok ve Yandex reklamlarını yöneten, web sitesi kuran ve SEO çalışmaları yapan bir dijital pazarlama ajansı. Tanıtım sitesi hizmetleri, referansları ve sık sorulan soruları tek sayfada topluyor.',
+    icon: 'trending-up',
+    platform: 'Web sitesi',
+    status: 'Yayında',
+    modules: [
+      { name: 'Hizmet tanıtımı', description: 'Reklam yönetimi, web tasarım, SEO ve ölçümleme hizmetleri ayrı ayrı anlatılır.' },
+      { name: 'Referanslar', description: 'Ajansın çalıştığı markalar ve yapılan işler gösterilir.' },
+      { name: 'Sık sorulan sorular', description: 'Ziyaretçinin merak ettiği konular tek yerde cevaplanır.' },
+      { name: 'Tek sayfa yapı', description: 'Hakkımızda, hizmetler, referanslar ve iletişim aynı sayfada; menüden ilgili bölüme geçilir.' },
+    ],
+    stack: ['HTML', 'CSS', 'JavaScript'],
+    url: 'https://www.broxdigital.com',
   },
 ];
 
 export const solutions = [
   {
     icon: 'layout',
-    title: 'Web Uygulama Geliştirme',
-    description:
-      'Tarayıcıda çalışan, hızlı ve ölçeklenebilir arayüzler; yönetim panellerinden kullanıcı platformlarına.',
-    tags: ['React', 'Vite', 'Tailwind CSS'],
+    title: 'Web Uygulamaları',
+    description: 'Tarayıcıda çalışan, hızlı ve kullanışlı uygulamalar: yönetim panellerinden kullanıcı platformlarına kadar.',
   },
   {
     icon: 'smartphone',
-    title: 'Mobil Uygulama',
-    description: 'Web ile aynı iş kurallarını paylaşan, tek kod tabanından çıkan iOS ve Android istemcileri.',
-    tags: ['React Native', 'Expo', 'NativeWind'],
+    title: 'Mobil Uygulamalar',
+    description: 'iOS ve Android için, web sürümüyle aynı verileri kullanan mobil uygulamalar.',
   },
   {
-    icon: 'server',
-    title: 'Backend & API',
-    description: 'Modüler monolit mimari, gerçek zamanlı iletişim ve güvenli kimlik doğrulama katmanları.',
-    tags: ['.NET 8', 'PHP', 'SignalR', 'REST'],
-  },
-  {
-    icon: 'database',
-    title: 'Veritabanı & Altyapı',
-    description: 'Modül başına şema ayrımı, önbellekleme stratejisi ve konteynerli dağıtım.',
-    tags: ['PostgreSQL', 'Redis', 'Docker'],
+    icon: 'globe',
+    title: 'Kurumsal Web Siteleri',
+    description: 'Markanızı doğru anlatan, hızlı açılan ve her ekranda düzgün görünen web siteleri.',
   },
   {
     icon: 'briefcase',
-    title: 'Kurumsal Otomasyon',
-    description: 'Stok, cari, fatura ve finans süreçlerini tek panelde toplayan işletmeye özel yazılımlar.',
-    tags: ['Stok', 'Finans', 'Raporlama'],
+    title: 'İşletme Otomasyonu',
+    description: 'Stok, cari hesap, fatura ve kasa işlerini tek panelden takip edebileceğiniz yazılımlar.',
+  },
+  {
+    icon: 'server',
+    title: 'Sunucu ve Altyapı',
+    description: 'Uygulamanızın arkasında sorunsuz çalışan sunucu, veritabanı ve bağlantı altyapısı.',
   },
   {
     icon: 'pen-tool',
-    title: 'Ürün Tasarımı & Arayüz',
-    description: 'Tasarım sistemi, yeniden kullanılabilir bileşenler ve erişilebilir, tutarlı arayüzler.',
-    tags: ['UI / UX', 'Tasarım Sistemi', 'Erişilebilirlik'],
+    title: 'Arayüz Tasarımı',
+    description: 'Kolay anlaşılan, göze hoş gelen ve herkesin rahatça kullanabileceği ekranlar.',
   },
 ];
 
 export const process = [
   {
     icon: 'search',
-    title: 'Keşif & Analiz',
-    description: 'İhtiyacı, kullanıcıyı ve mevcut süreci anlıyor; kapsamı birlikte netleştiriyoruz.',
-    deliverable: 'Kapsam dokümanı',
+    title: 'Dinliyoruz',
+    description: 'Ne istediğinizi ve ürünü kimin kullanacağını birlikte konuşup netleştiriyoruz.',
   },
   {
     icon: 'pen-tool',
-    title: 'Mimari & Tasarım',
-    description: 'Veri modeli, modül sınırları ve arayüz akışları; kod yazılmadan önce mimari kararlar.',
-    deliverable: 'Teknik plan & arayüz taslağı',
+    title: 'Planlıyoruz',
+    description: 'Kod yazmaya başlamadan önce ekranları ve sistemin nasıl çalışacağını birlikte belirliyoruz.',
   },
   {
     icon: 'code',
-    title: 'Geliştirme & Test',
-    description: 'Modüler geliştirme, sürüm kontrolü ve otomatik testlerle güvenli ilerleme.',
-    deliverable: 'Çalışan ara sürümler',
+    title: 'Geliştiriyoruz',
+    description: 'Projeyi adım adım geliştiriyor, her aşamayı test edip size gösteriyoruz.',
   },
   {
     icon: 'rocket',
-    title: 'Yayın & Bakım',
-    description: 'Konteynerli yayın, izleme ve geri bildirime dayalı sürekli iyileştirme.',
-    deliverable: 'Canlı sistem & destek',
+    title: 'Yayına Alıyoruz',
+    description: 'Projeyi yayına alıyor, sonrasında da güncelleme ve destekle yanınızda oluyoruz.',
   },
 ];
 
-export const techStack = [
-  { group: 'Ön Yüz', icon: 'layout', items: ['React', 'Vite', 'Tailwind CSS', 'React Native', 'Expo'] },
-  { group: 'Arka Uç', icon: 'server', items: ['.NET 8', 'PHP', 'SignalR', 'REST API'] },
-  { group: 'Veri & Altyapı', icon: 'database', items: ['PostgreSQL', 'Redis', 'SQL', 'Docker', 'Git'] },
-];
-
+/**
+ * Ekip. Fotoğraf eklemek için görseli public/images/ekip/ klasörüne koyup `photo` alanına yolunu yazın
+ * (örn. '/images/ekip/arda-eren-guler.jpg'). Fotoğraf yoksa baş harfler gösterilir.
+ */
 export const founders = [
   {
     id: 'arda-eren-guler',
     name: 'Arda Eren Güler',
-    role: 'Kurucu Ortak · Full-Stack Geliştirici',
-    initials: 'AG',
-    focus: ['Web', 'Otomasyon', 'Ürün'],
-    bio: 'Gazi Üniversitesi Yönetim Bilişim Sistemleri. GülerDepo\'yu geliştirdi; dersmate\'i kurucu ortağıyla birlikte büyütüyor.',
+    role: 'Kurucu Ortak',
+    photo: null,
     links: {
-      github: 'https://github.com/ArdaErenGuler',
       linkedin: 'https://www.linkedin.com/in/ardaerenglr',
+      github: 'https://github.com/ArdaErenGuler',
     },
   },
   {
-    // TODO: Kurucu ortağın adı, rolü, biyografisi ve bağlantıları eklenecek.
-    id: 'kurucu-ortak',
-    name: 'Kurucu Ortak',
-    role: 'Kurucu Ortak · Geliştirici',
-    initials: 'CT',
-    focus: ['Backend', 'Mobil'],
-    bio: 'Bu alan kurucu ortağın kısa biyografisi için ayrıldı; src/data/site.js içinden düzenlenebilir.',
-    links: {},
+    id: 'abdullah-cosar',
+    name: 'Abdullah Coşar',
+    role: 'Kurucu Ortak',
+    photo: null,
+    links: {
+      linkedin: 'https://www.linkedin.com/in/abdullahcosar/',
+      github: 'https://github.com/Vellhale',
+    },
   },
 ];

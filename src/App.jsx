@@ -8,9 +8,7 @@ import Hero from './sections/Hero';
 import Ventures from './sections/Ventures';
 import Solutions from './sections/Solutions';
 import Process from './sections/Process';
-import TechStack from './sections/TechStack';
-import Founders from './sections/Founders';
-import CtaBanner from './sections/CtaBanner';
+import About from './sections/About';
 import Contact from './sections/Contact';
 
 export default function App() {
@@ -22,9 +20,7 @@ export default function App() {
         <Ventures />
         <Solutions />
         <Process />
-        <TechStack />
-        <Founders />
-        <CtaBanner />
+        <About />
         <Contact />
       </main>
       <Footer />

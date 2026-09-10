@@ -1,26 +1,13 @@
 import Container from '../ui/Container';
 import Logo from '../ui/Logo';
 import Icon from '../ui/Icon';
-import { company, navLinks, ventures } from '../../data/site';
+import { company, contactChannels, navLinks, ventures } from '../../data/site';
 import { useUI } from '../../context/UIContext';
 
 const COLUMN_TITLE = 'font-display text-sm font-bold text-heading';
 const FOOTER_LINK = 'text-sm text-muted transition-colors hover:text-heading';
 
-function SocialLink({ label, url, icon }) {
-  return (
-    <a
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={label}
-      title={label}
-      className="grid size-10 place-items-center rounded-full border border-line bg-surface-2 text-muted transition-colors hover:border-line-accent hover:text-accent"
-    >
-      <Icon name={icon} className="size-4" strokeWidth={2} />
-    </a>
-  );
-}
+const externalProps = (channel) => (channel.external ? { target: '_blank', rel: 'noopener noreferrer' } : {});
 
 export default function Footer() {
   const { openModal } = useUI();
@@ -34,10 +21,18 @@ export default function Footer() {
             <Logo />
             <p className="mt-5 text-sm leading-relaxed text-muted">{company.description}</p>
             <div className="mt-6 flex gap-3">
-              {company.social.map((item) => (
-                <SocialLink key={item.id} {...item} />
+              {contactChannels.map((channel) => (
+                <a
+                  key={channel.id}
+                  href={channel.url}
+                  aria-label={channel.label}
+                  title={channel.label}
+                  className="grid size-10 place-items-center rounded-full border border-line bg-surface-2 text-muted transition-colors hover:border-line-accent hover:text-accent"
+                  {...externalProps(channel)}
+                >
+                  <Icon name={channel.icon} className="size-4" strokeWidth={2} />
+                </a>
               ))}
-              <SocialLink label="E-posta" url={`mailto:${company.email}`} icon="mail" />
             </div>
           </div>
 
@@ -74,19 +69,25 @@ export default function Footer() {
           <div>
             <h2 className={COLUMN_TITLE}>İletişim</h2>
             <ul className="mt-5 space-y-3">
-              <li>
-                <a href={`mailto:${company.email}`} className="text-sm text-accent transition-colors hover:text-accent-light">
-                  {company.email}
-                </a>
-              </li>
-              <li className="text-sm text-muted">{company.location}</li>
+              {contactChannels.map((channel) => (
+                <li key={channel.id}>
+                  <a
+                    href={channel.url}
+                    className="inline-flex items-center gap-2 text-sm text-accent transition-colors hover:text-accent-light"
+                    {...externalProps(channel)}
+                  >
+                    <Icon name={channel.icon} className="size-4" strokeWidth={2} />
+                    {channel.value}
+                  </a>
+                </li>
+              ))}
               <li>
                 <button
                   type="button"
                   onClick={() => openModal({ type: 'contact' })}
                   className={`${FOOTER_LINK} inline-flex items-center gap-1.5 font-medium`}
                 >
-                  İletişim formu
+                  Bize ulaşın
                   <Icon name="arrow-right" className="size-3.5" strokeWidth={2} />
                 </button>
               </li>

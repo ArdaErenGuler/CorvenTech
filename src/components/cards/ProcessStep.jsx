@@ -1,9 +1,9 @@
 import Icon from '../ui/Icon';
 import { CARD } from '../ui/Card';
 
-/** Süreç adımı: numara, ikon, başlık, açıklama ve teslimat. Liste öğesi (li) sarmalayıcı tarafından sağlanır. */
+/** Süreç adımı: numara, ikon, başlık ve açıklama. Liste öğesi (li) sarmalayıcı tarafından sağlanır. */
 export default function ProcessStep({ step, index, isLast }) {
-  const { icon, title, description, deliverable } = step;
+  const { icon, title, description } = step;
 
   return (
     <div className={`relative flex h-full flex-col p-7 ${CARD}`}>
@@ -24,11 +24,6 @@ export default function ProcessStep({ step, index, isLast }) {
 
       <h3 className="mt-6 font-display text-lg font-bold">{title}</h3>
       <p className="mt-2 text-sm leading-relaxed text-muted">{description}</p>
-
-      <p className="mt-auto border-t border-line pt-4 text-xs">
-        <span className="font-badge font-semibold uppercase tracking-[0.1em] text-dim">Çıktı · </span>
-        <span className="font-medium text-body">{deliverable}</span>
-      </p>
     </div>
   );
 }
