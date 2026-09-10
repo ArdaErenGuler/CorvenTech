@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   TASARIM TOKENLARI — flat 2D sistem
+   Gölge yardımcı sınıfları bilinçli olarak kapatıldı (shadow-*, drop-shadow-* …):
+   derinlik yalnızca kenarlık ve düz renk alanlarıyla kurulur, gradient kullanılmaz.
+   ========================================================================== */
+@theme {
+  --color-accent: #00b4d8;
+  --color-accent-soft: #e6f7fb;
+  --color-ink: #2b2d42;
+  --color-ink-muted: #5c5f77;
+  --color-line: #e7e8ee;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Poppins", "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-*: initial;
+  --inset-shadow-*: initial;
+  --drop-shadow-*: initial;
+  --text-shadow-*: initial;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4.5rem;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-ink);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
