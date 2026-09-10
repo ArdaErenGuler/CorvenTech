@@ -1,48 +1,72 @@
 import Icon from '../ui/Icon';
+import Badge from '../ui/Badge';
+import Chip from '../ui/Chip';
+import Button from '../ui/Button';
+import { CARD, ICON_BOX } from '../ui/Card';
+import { useUI } from '../../context/UIContext';
 
-/** Girişim modül kartı. `venture.url` varsa kartın tamamı bağlantı olur. */
-export default function VentureCard({ venture, index }) {
-  const { name, category, description, modules, icon, url } = venture;
-  const Wrapper = url ? 'a' : 'article';
-  const linkProps = url ? { href: url, target: '_blank', rel: 'noopener noreferrer' } : {};
+const LABEL = 'mb-2.5 font-badge text-[0.72rem] font-semibold uppercase tracking-[0.1em] text-dim';
+
+/** Girişim modül kartı: kategori, modüller, teknoloji ve detay/kaynak düğmeleri. */
+export default function VentureCard({ venture }) {
+  const { id, name, category, tagline, description, modules, stack, icon, status, links } = venture;
+  const { openModal } = useUI();
 
   return (
-    <Wrapper
-      {...linkProps}
-      className="group flex h-full flex-col rounded-2xl border border-line bg-white p-8 transition-colors duration-200 hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
-    >
-      <div className="flex items-start justify-between">
-        <span className="grid size-12 place-items-center rounded-xl bg-accent-soft text-accent transition-colors duration-200 group-hover:bg-accent group-hover:text-ink">
-          <Icon name={icon} className="size-6" />
+    <article className={`group flex h-full flex-col p-8 md:p-10 ${CARD}`}>
+      <div className="flex items-start justify-between gap-4">
+        <span className={`size-14 ${ICON_BOX}`}>
+          <Icon name={icon} className="size-7" />
         </span>
-        {url ? (
-          <Icon
-            name="arrow-up-right"
-            className="size-5 text-ink-muted transition-colors group-hover:text-ink"
-          />
-        ) : (
-          <span className="font-display text-sm font-medium text-ink-muted">
-            {String(index + 1).padStart(2, '0')}
-          </span>
-        )}
+        <Badge variant="neutral">{status}</Badge>
       </div>
 
-      <p className="mt-8 text-xs font-semibold uppercase tracking-[0.12em] text-ink-muted">
+      <p className="mt-8 font-badge text-[0.78rem] font-semibold uppercase tracking-[0.08em] text-accent">
         {category}
       </p>
-      <h3 className="mt-2 font-display text-2xl font-semibold tracking-tight">{name}</h3>
-      <p className="mt-4 mb-8 leading-relaxed text-ink-muted">{description}</p>
+      <h3 className="mt-2 font-display text-2xl font-bold sm:text-3xl">{name}</h3>
+      <p className="mt-2 font-medium text-body">{tagline}</p>
+      <p className="mt-4 leading-relaxed text-muted">{description}</p>
 
-      <ul className="mt-auto flex flex-wrap gap-2 border-t border-line pt-6" aria-label="Modüller">
-        {modules.map((module) => (
-          <li
-            key={module}
-            className="rounded-full border border-line px-3 py-1 text-xs font-medium text-ink"
+      <div className="mt-8 space-y-5">
+        <div>
+          <p className={LABEL}>Modüller</p>
+          <ul className="flex flex-wrap gap-2" aria-label={`${name} modülleri`}>
+            {modules.map((module) => (
+              <Chip key={module.name} as="li" variant="soft">
+                {module.name}
+              </Chip>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <p className={LABEL}>Teknoloji</p>
+          <ul className="flex flex-wrap gap-2" aria-label={`${name} teknolojileri`}>
+            {stack.map((item) => (
+              <Chip key={item} as="li">
+                {item}
+              </Chip>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div className="mt-auto flex flex-wrap gap-3 border-t border-line pt-8 mt-10">
+        <Button onClick={() => openModal({ type: 'venture', id })} icon="arrow-right">
+          Detayları Gör
+        </Button>
+        {links.github && (
+          <Button
+            href={links.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="secondary"
+            icon="external-link"
           >
-            {module}
-          </li>
-        ))}
-      </ul>
-    </Wrapper>
+            GitHub
+          </Button>
+        )}
+      </div>
+    </article>
   );
 }

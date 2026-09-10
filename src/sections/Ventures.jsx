@@ -6,20 +6,15 @@ import { sections, ventures } from '../data/site';
 
 export default function Ventures() {
   return (
-    <Section id="girisimlerimiz" bordered>
+    <Section id="girisimlerimiz" tone="band">
       <Reveal>
         <SectionHeader {...sections.ventures} />
       </Reveal>
 
-      <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-16 grid gap-6 md:grid-cols-2 md:gap-8">
         {ventures.map((venture, index) => (
-          <Reveal
-            key={venture.id}
-            delay={index * 100}
-            // Tablet görünümünde tek kalan son kart tam genişliğe yayılır.
-            className="h-full md:last:odd:col-span-2 lg:last:odd:col-span-1"
-          >
-            <VentureCard venture={venture} index={index} />
+          <Reveal key={venture.id} delay={index * 120} className="h-full">
+            <VentureCard venture={venture} />
           </Reveal>
         ))}
       </div>
