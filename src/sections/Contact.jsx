@@ -5,17 +5,17 @@ import ContactCard from '../components/cards/ContactCard';
 import { contactChannels, sections } from '../data/site';
 
 export default function Contact() {
-  const { icon, tag, title, description } = sections.contact;
+  const { tag, title, description } = sections.contact;
 
   return (
-    <Section id="iletisim" tone="band">
+    <Section id="iletisim">
       <Reveal>
-        <SectionHeader icon={icon} tag={tag} title={title} description={description} />
+        <SectionHeader index="05" tag={tag} title={title} description={description} />
       </Reveal>
 
-      <div className="mx-auto mt-14 grid max-w-3xl gap-6 sm:grid-cols-2">
+      <div className="mt-12 grid gap-px bg-line">
         {contactChannels.map((channel, index) => (
-          <Reveal key={channel.id} delay={index * 100} className="h-full">
+          <Reveal key={channel.id} delay={index * 90} className="bg-ink">
             <ContactCard channel={channel} primary={index === 0} />
           </Reveal>
         ))}

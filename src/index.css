@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   TASARIM TOKENLARI — Derin mat antrasit-lacivert tema (gaziybstoplulugu referansı)
-   Marka vurgusu camgöbeği (#00B4D8); zeminler koyu, kartlar bir ton açık, ayraçlar saydam beyaz.
+   TASARIM SİSTEMİ
+   Tipografi: tek aile (Manrope). Hiyerarşi yalnızca ağırlık ve boyutla kurulur;
+   ayrı bir "etiket fontu" yoktur.
+   Yüzey: cam/bevel parlaması ve atmosferik ışık lekesi yoktur; derinlik
+   kenarlık, düz zemin tonu ve boşlukla kurulur.
+   Köşeler: keskin tarafta (kart 8px, düğme 8px, etiket 4px); hap biçim yok.
    ========================================================================== */
 @theme {
   /* Zeminler */
@@ -30,24 +34,14 @@
   --color-line-strong: rgb(255 255 255 / 0.2);
   --color-line-accent: rgb(0 180 216 / 0.3);
 
-  /* Tipografi */
-  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-badge: "Space Grotesk", ui-monospace, "Segoe UI", sans-serif;
+  /* Tipografi — tek aile */
+  --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
 
-  /* Mat gölgeler (neon parlama yok) */
-  --shadow-sm: 0 2px 8px rgb(0 0 0 / 0.25);
-  --shadow-md: 0 8px 24px rgb(0 0 0 / 0.35);
-  --shadow-lg: 0 16px 40px rgb(0 0 0 / 0.45);
-  --shadow-glow: 0 0 50px rgb(0 180 216 / 0.12);
-  --inset-shadow-highlight: inset 0 1px 0 rgb(255 255 255 / 0.06);
+  /* Yalnızca üst katman yüzeyleri (modal, çekmece, bildirim) için tek gölge */
+  --shadow-overlay: 0 24px 60px rgb(0 0 0 / 0.5);
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Ortak yüzeyler */
-@utility hero-glow {
-  background: radial-gradient(circle at 50% 30%, rgb(0 180 216 / 0.12) 0%, transparent 68%);
 }
 
 /* Giriş animasyonları (modal, toast, mobil çekmece) */
@@ -122,22 +116,22 @@
     background-color: var(--color-ink);
     color: var(--color-body);
     font-family: var(--font-sans);
-    line-height: 1.65;
+    line-height: 1.55;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Arka plan atmosferik ışık lekeleri */
+  /* Arka plan dokusu: yukarıdan aşağı sönümlenen ince nokta ızgarası */
   body::before {
     content: "";
     position: fixed;
     inset: 0;
     z-index: 0;
     pointer-events: none;
-    background:
-      radial-gradient(circle at 10% 15%, rgb(0 180 216 / 0.07) 0%, transparent 40%),
-      radial-gradient(circle at 90% 60%, rgb(72 202 228 / 0.05) 0%, transparent 45%),
-      radial-gradient(circle at 50% 90%, rgb(0 150 183 / 0.06) 0%, transparent 50%);
+    background-image: radial-gradient(rgb(255 255 255 / 0.05) 1px, transparent 1px);
+    background-size: 34px 34px;
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 60%);
+    mask-image: linear-gradient(to bottom, #000 0%, transparent 60%);
   }
 
   #root {
@@ -151,30 +145,13 @@
   h4 {
     font-family: var(--font-display);
     color: var(--color-heading);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
+    line-height: 1.12;
   }
 
   ::selection {
     background-color: var(--color-accent);
     color: var(--color-ink);
-  }
-
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: var(--color-ink);
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: var(--color-surface-2);
-    border: 2px solid var(--color-ink);
-    border-radius: 9999px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-accent);
   }
 }
 

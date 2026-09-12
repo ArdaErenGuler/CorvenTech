@@ -53,23 +53,16 @@ export function LogoMark({ className = 'size-10' }) {
   );
 }
 
-/** Marka bloğu: amblem + iki satırlı yazı (ana ad ve alt etiket). */
+/** Marka bloğu: amblem + tek satır marka adı. */
 export default function Logo({ href = '#top', className = '' }) {
   return (
     <a
       href={href}
       aria-label={`${company.name} ana sayfa`}
-      className={`group/logo inline-flex items-center gap-3 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent ${className}`}
+      className={`group/logo inline-flex items-center gap-2.5 rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent ${className}`}
     >
-      <LogoMark className="size-10 transition-transform duration-300 group-hover/logo:scale-105" />
-      <span className="flex flex-col leading-none">
-        <span className="font-display text-[1.15rem] font-extrabold tracking-tight text-heading">
-          {company.name}
-        </span>
-        <span className="mt-1 font-badge text-[0.68rem] font-semibold uppercase tracking-[0.1em] text-accent">
-          {company.brandSub}
-        </span>
-      </span>
+      <LogoMark className="size-9" />
+      <span className="text-[1.05rem] font-extrabold tracking-[-0.03em] text-heading">{company.name}</span>
     </a>
   );
 }

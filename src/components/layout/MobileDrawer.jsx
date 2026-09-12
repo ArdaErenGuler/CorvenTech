@@ -42,7 +42,7 @@ export default function MobileDrawer({ open, onClose, onContact, activeId }) {
         role="dialog"
         aria-modal="true"
         aria-label="Mobil menü"
-        className="animate-drawer-in absolute inset-y-0 right-0 flex w-[84%] max-w-sm flex-col border-l border-line bg-ink-soft shadow-lg"
+        className="animate-drawer-in absolute inset-y-0 right-0 flex w-[84%] max-w-sm flex-col border-l border-line bg-ink-soft shadow-overlay"
       >
         <div className="flex h-20 items-center justify-between border-b border-line px-6">
           <Logo />

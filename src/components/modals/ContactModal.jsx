@@ -13,12 +13,12 @@ export default function ContactModal() {
   return (
     <Modal open={modal?.type === 'contact'} onClose={closeModal} labelledBy="contact-modal-title" size="lg">
       <Badge icon="message-circle">Hızlı İletişim</Badge>
-      <h2 id="contact-modal-title" className="mt-4 pr-10 font-display text-2xl font-bold">
+      <h2 id="contact-modal-title" className="mt-4 pr-10 text-2xl font-extrabold">
         {contact.modalTitle}
       </h2>
       <p className="mt-2 text-sm leading-relaxed text-muted">{contact.modalDescription}</p>
 
-      <div className="mt-7 grid gap-4 sm:grid-cols-2">
+      <div className="mt-7 divide-y divide-line rounded-lg border border-line">
         {contactChannels.map((channel, index) => (
           <ContactCard key={channel.id} channel={channel} primary={index === 0} />
         ))}

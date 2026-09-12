@@ -5,15 +5,17 @@ import FounderCard from '../components/cards/FounderCard';
 import { founders, sections } from '../data/site';
 
 export default function About() {
+  const { tag, title, description } = sections.about;
+
   return (
     <Section id="hakkimizda">
       <Reveal>
-        <SectionHeader {...sections.about} />
+        <SectionHeader index="04" tag={tag} title={title} description={description} />
       </Reveal>
 
-      <div className="mx-auto mt-14 grid max-w-3xl gap-6 sm:grid-cols-2">
+      <div className="mt-12 grid gap-px bg-line sm:grid-cols-2">
         {founders.map((founder, index) => (
-          <Reveal key={founder.id} delay={index * 120} className="h-full">
+          <Reveal key={founder.id} delay={index * 90} className="bg-ink">
             <FounderCard founder={founder} />
           </Reveal>
         ))}

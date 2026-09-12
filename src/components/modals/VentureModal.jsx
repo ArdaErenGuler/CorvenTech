@@ -7,11 +7,11 @@ import { ventures } from '../../data/site';
 import { useUI } from '../../context/UIContext';
 import { hostOf } from '../../utils/url';
 
-const SUBHEADING = 'font-badge text-[0.72rem] font-semibold uppercase tracking-[0.1em] text-dim';
+const SUBHEADING = 'text-sm font-semibold text-dim';
 
 function InfoCell({ label, value }) {
   return (
-    <div className="rounded-xl border border-line bg-ink-soft px-4 py-3">
+    <div className="rounded-lg border border-line bg-ink-soft px-4 py-3">
       <p className={SUBHEADING}>{label}</p>
       <p className="mt-1 text-sm font-medium text-body">{value}</p>
     </div>
@@ -29,7 +29,7 @@ export default function VentureModal() {
         <>
           <div className="pr-12">
             <Badge icon={venture.icon}>{venture.category}</Badge>
-            <h2 id="venture-modal-title" className="mt-4 font-display text-3xl font-bold">
+            <h2 id="venture-modal-title" className="mt-4 text-3xl font-extrabold">
               {venture.name}
             </h2>
           </div>
@@ -46,7 +46,7 @@ export default function VentureModal() {
           {venture.modules?.length > 0 && (
             <>
               <h3 className={`mt-8 ${SUBHEADING}`}>Öne çıkan özellikler</h3>
-              <ul className="mt-3 divide-y divide-line rounded-xl border border-line bg-ink-soft">
+              <ul className="mt-3 divide-y divide-line rounded-lg border border-line bg-ink-soft">
                 {venture.modules.map((module) => (
                   <li key={module.name} className="flex gap-3 px-4 py-3.5">
                     <Icon name="check" className="mt-0.5 size-4 shrink-0 text-accent" strokeWidth={2.25} />

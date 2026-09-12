@@ -1,13 +1,13 @@
 const VARIANTS = {
-  outline: 'border border-line bg-ink-soft text-body',
-  soft: 'border border-accent-border bg-accent-subtle text-accent-light',
+  outline: 'border-line bg-ink-soft text-body',
+  soft: 'border-line-accent bg-accent-subtle text-accent-light',
 };
 
-/** Küçük etiket çipi (modül, teknoloji, odak alanı). */
+/** Küçük köşeli etiket (modül, teknoloji). */
 export default function Chip({ variant = 'outline', as: Tag = 'span', className = '', children }) {
   return (
     <Tag
-      className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-medium ${VARIANTS[variant]} ${className}`}
+      className={`inline-flex items-center rounded border px-2.5 py-1 text-xs font-medium ${VARIANTS[variant]} ${className}`}
     >
       {children}
     </Tag>

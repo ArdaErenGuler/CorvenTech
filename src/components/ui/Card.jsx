@@ -1,13 +1,15 @@
-/** Ortak kart yüzeyi: koyu zemin, ince kenarlık, üst ışık çizgisi ve hover'da hafif yükselme. */
+/**
+ * Ortak yüzey. Cam/bevel parlaması ve gölge yok; ayrım kenarlık ve zemin tonuyla.
+ * Hover'da yükselme yerine kenarlık ve zemin aydınlanır.
+ */
 export const CARD =
-  'rounded-2xl border border-line bg-surface inset-shadow-highlight transition-[transform,border-color,box-shadow] duration-300 ease-out-expo hover:-translate-y-1 hover:border-line-accent hover:shadow-md';
+  'rounded-lg border border-line bg-surface transition-colors duration-200 hover:border-line-accent hover:bg-surface-2';
 
-/** Hover etkisi olmayan durağan kart yüzeyi. */
-export const CARD_STATIC = 'rounded-2xl border border-line bg-surface inset-shadow-highlight';
+/** Etkileşimsiz yüzey. */
+export const CARD_STATIC = 'rounded-lg border border-line bg-surface';
 
-/** Vurgulu ikon kutusu. */
-export const ICON_BOX =
-  'grid place-items-center rounded-xl border border-accent-border bg-accent-subtle text-accent transition-colors duration-300 group-hover:bg-accent group-hover:text-ink';
+/** Çerçevesiz vurgu ikonu: kutu yok, ikon doğrudan metnin yanında durur. */
+export const ICON_MARK = 'text-accent transition-colors duration-200 group-hover:text-accent-light';
 
 export default function Card({ as: Tag = 'div', hover = true, className = '', children, ...rest }) {
   return (

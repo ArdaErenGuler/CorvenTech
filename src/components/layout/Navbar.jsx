@@ -12,22 +12,21 @@ import useScrolled from '../../hooks/useScrolled';
 // Hero ('top') da gözlenir; en üste dönüldüğünde hiçbir bağlantı aktif görünmez.
 const OBSERVED_IDS = ['top', ...navLinks.map((link) => link.href.slice(1))];
 
+/** Aktif bölüm, bağlantının solundaki küçük nokta ile gösterilir (altı çizili şerit yok). */
 function NavLink({ label, href, active }) {
   return (
     <a
       href={href}
       aria-current={active ? 'location' : undefined}
-      className={`relative py-2 text-[0.93rem] font-medium transition-colors duration-200 hover:text-heading ${
+      className={`inline-flex items-center gap-2 py-2 text-[0.93rem] font-medium transition-colors duration-200 hover:text-heading ${
         active ? 'text-heading' : 'text-muted'
       }`}
     >
-      {label}
       <span
         aria-hidden="true"
-        className={`absolute inset-x-0 -bottom-0.5 h-0.5 origin-left rounded-full bg-accent transition-transform duration-300 ease-out-expo ${
-          active ? 'scale-x-100' : 'scale-x-0'
-        }`}
+        className={`size-1.5 rounded-full transition-colors duration-200 ${active ? 'bg-accent' : 'bg-transparent'}`}
       />
+      {label}
     </a>
   );
 }
@@ -53,18 +52,17 @@ export default function Navbar() {
 
   return (
     <>
+      {/* Sabit yükseklik, bulanıklık yok: kaydırınca yalnızca zemin ve alt çizgi belirir */}
       <header
-        className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,padding,box-shadow,backdrop-filter] duration-300 ease-out-expo ${
-          scrolled
-            ? 'border-line bg-ink/85 py-3 shadow-md backdrop-blur-xl'
-            : 'border-transparent bg-transparent py-5'
+        className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-200 ${
+          scrolled ? 'border-line bg-ink' : 'border-transparent bg-transparent'
         }`}
       >
-        <Container className="flex items-center justify-between gap-6">
+        <Container className="flex h-18 items-center justify-between gap-6">
           <Logo />
 
           <nav aria-label="Ana menü" className="hidden lg:block">
-            <ul className="flex items-center gap-8">
+            <ul className="flex items-center gap-7">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <NavLink {...link} active={active === link.href.slice(1)} />
@@ -87,7 +85,7 @@ export default function Navbar() {
               aria-expanded={drawerOpen}
               aria-controls="mobile-drawer"
               aria-label="Menüyü aç"
-              className="grid size-11 place-items-center rounded-lg border border-line-strong bg-surface-2 text-heading transition-colors hover:border-line-accent lg:hidden"
+              className="grid size-11 place-items-center rounded-lg border border-line text-heading transition-colors hover:border-line-accent lg:hidden"
             >
               <Icon name="menu" className="size-5" strokeWidth={2} />
             </button>
