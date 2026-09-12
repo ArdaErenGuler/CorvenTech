@@ -1,7 +1,6 @@
 # CorvenTech
 
 İki yazılımcının ortak girişimlerini tek çatı altında toplayan CorvenTech'in kurumsal portfolyo sitesi.
-Görsel dil ve bölüm dizilimi [gaziybstoplulugu](https://github.com/ArdaErenGuler/gaziybstoplulugu) projesini referans alır.
 
 **Teknolojiler:** React · Vite · Tailwind CSS v4
 
@@ -70,11 +69,11 @@ Koyu antrasit-lacivert tema, camgöbeği marka vurgusu. Tokenlar `src/index.css`
 src/
 ├── data/site.js            # Tüm içerik: şirket, iletişim, girişimler, çözümler, süreç, ekip
 ├── context/UIContext.jsx   # Açık pencere ve bildirim (toast) durumu
-├── hooks/                  # useInView, useActiveSection, useScrolled
+├── hooks/                  # useInView, useActiveSection, useScrolled, useFocusTrap
 ├── utils/url.js            # Adresten alan adı çıkarma
 ├── components/
 │   ├── layout/             # Navbar, MobileDrawer, Footer
-│   ├── ui/                 # Button, Badge, Chip, Card, Modal, Toast, Section, SectionHeader, Icon, …
+│   ├── ui/                 # Button, Badge, Chip, Modal, Toast, Section, SectionHeader, Icon, Logo, Reveal
 │   ├── cards/              # VentureRow, FounderCard, ContactCard
 │   ├── modals/             # VentureModal, ContactModal
 │   └── hero/HeroCanvas.jsx # Hero arka plan animasyonu
