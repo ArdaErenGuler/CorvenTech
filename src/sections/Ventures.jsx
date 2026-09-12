@@ -28,7 +28,7 @@ export default function Ventures() {
                 type="button"
                 aria-pressed={active}
                 onClick={() => setFilter(item.id)}
-                className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
+                className={`inline-flex items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-medium transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
                   active
                     ? 'border-accent bg-accent text-ink'
                     : 'border-line-strong bg-surface-2 text-muted hover:border-line-accent hover:text-heading'

@@ -5,7 +5,7 @@ import { company, contactChannels, navLinks, ventures } from '../../data/site';
 import { useUI } from '../../context/UIContext';
 
 const COLUMN_TITLE = 'font-display text-sm font-bold text-heading';
-const FOOTER_LINK = 'text-sm text-muted transition-colors hover:text-heading';
+const FOOTER_LINK = 'inline-block py-1 text-sm text-muted transition-colors hover:text-heading';
 
 const externalProps = (channel) => (channel.external ? { target: '_blank', rel: 'noopener noreferrer' } : {});
 
@@ -38,7 +38,7 @@ export default function Footer() {
 
           <div>
             <h2 className={COLUMN_TITLE}>Girişimler</h2>
-            <ul className="mt-5 space-y-3">
+            <ul className="mt-4 space-y-2">
               {ventures.map((venture) => (
                 <li key={venture.id}>
                   <button
@@ -55,7 +55,7 @@ export default function Footer() {
 
           <div>
             <h2 className={COLUMN_TITLE}>Hızlı Bağlantılar</h2>
-            <ul className="mt-5 space-y-3">
+            <ul className="mt-4 space-y-2">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <a href={link.href} className={FOOTER_LINK}>
@@ -68,12 +68,12 @@ export default function Footer() {
 
           <div>
             <h2 className={COLUMN_TITLE}>İletişim</h2>
-            <ul className="mt-5 space-y-3">
+            <ul className="mt-4 space-y-2">
               {contactChannels.map((channel) => (
                 <li key={channel.id}>
                   <a
                     href={channel.url}
-                    className="inline-flex items-center gap-2 text-sm text-accent transition-colors hover:text-accent-light"
+                    className="inline-flex items-center gap-2 py-1 text-sm text-accent transition-colors hover:text-accent-light"
                     {...externalProps(channel)}
                   >
                     <Icon name={channel.icon} className="size-4" strokeWidth={2} />

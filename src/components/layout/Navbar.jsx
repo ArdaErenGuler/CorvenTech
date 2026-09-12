@@ -74,9 +74,13 @@ export default function Navbar() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <Button onClick={openContact} size="sm" icon="arrow-right" className="hidden sm:inline-flex">
-              Bize Ulaşın
-            </Button>
+            {/* Dar ekranda gizlenir; oradaki karşılığı mobil çekmecedeki düğmedir.
+                Gizleme sarmalayıcıda yapılır: Button'ın kendi inline-flex sınıfı "hidden"ı ezerdi. */}
+            <span className="hidden sm:block">
+              <Button onClick={openContact} size="sm" icon="arrow-right">
+                Bize Ulaşın
+              </Button>
+            </span>
             <button
               type="button"
               onClick={() => setDrawerOpen(true)}

@@ -3,10 +3,15 @@ import Logo from '../ui/Logo';
 import Icon from '../ui/Icon';
 import Button from '../ui/Button';
 import { company, navLinks } from '../../data/site';
+import useFocusTrap from '../../hooks/useFocusTrap';
 
 /** Sağdan açılan mobil menü çekmecesi; arka plan tıklaması ve Escape ile kapanır. */
 export default function MobileDrawer({ open, onClose, onContact, activeId }) {
   const closeButtonRef = useRef(null);
+  const drawerRef = useRef(null);
+
+  // Tab dolaşımını çekmece içinde tutar, kapanınca odağı menü düğmesine döndürür.
+  useFocusTrap(drawerRef, open);
 
   useEffect(() => {
     if (!open) return;
@@ -32,6 +37,7 @@ export default function MobileDrawer({ open, onClose, onContact, activeId }) {
       />
 
       <aside
+        ref={drawerRef}
         id="mobile-drawer"
         role="dialog"
         aria-modal="true"

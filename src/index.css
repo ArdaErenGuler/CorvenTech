@@ -26,8 +26,8 @@
   --color-accent-border: rgb(0 180 216 / 0.25);
 
   /* Kenarlıklar */
-  --color-line: rgb(255 255 255 / 0.08);
-  --color-line-strong: rgb(255 255 255 / 0.12);
+  --color-line: rgb(255 255 255 / 0.12);
+  --color-line-strong: rgb(255 255 255 / 0.2);
   --color-line-accent: rgb(0 180 216 / 0.3);
 
   /* Tipografi */

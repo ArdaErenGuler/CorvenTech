@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import Icon from './Icon';
+import useFocusTrap from '../../hooks/useFocusTrap';
 
 const SIZES = {
   md: 'max-w-xl',
@@ -12,12 +13,14 @@ const SIZES = {
  */
 export default function Modal({ open, onClose, labelledBy, size = 'md', children }) {
   const closeButtonRef = useRef(null);
-  const previouslyFocused = useRef(null);
+  const dialogRef = useRef(null);
+
+  // Tab dolaşımını pencere içinde tutar, kapanınca odağı açan elemana döndürür.
+  useFocusTrap(dialogRef, open);
 
   useEffect(() => {
     if (!open) return;
 
-    previouslyFocused.current = document.activeElement;
     document.body.style.overflow = 'hidden';
     closeButtonRef.current?.focus();
 
@@ -27,7 +30,6 @@ export default function Modal({ open, onClose, labelledBy, size = 'md', children
     return () => {
       window.removeEventListener('keydown', onKeyDown);
       document.body.style.overflow = '';
-      previouslyFocused.current?.focus?.();
     };
   }, [open, onClose]);
 
@@ -39,6 +41,7 @@ export default function Modal({ open, onClose, labelledBy, size = 'md', children
       onClick={(event) => event.target === event.currentTarget && onClose()}
     >
       <div
+        ref={dialogRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby={labelledBy}
