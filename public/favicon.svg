@@ -1,13 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs>
-    <linearGradient id="g" x1="0" y1="1" x2="1" y2="0">
-      <stop offset="0%" stop-color="#0096b7"/>
-      <stop offset="100%" stop-color="#48cae4"/>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="8" y1="58" x2="56" y2="8">
+      <stop offset="0%" stop-color="#142c5a"/>
+      <stop offset="55%" stop-color="#2b5b9c"/>
+      <stop offset="100%" stop-color="#4287c8"/>
     </linearGradient>
+    <mask id="m">
+      <rect width="64" height="64" fill="#000"/>
+      <circle cx="32" cy="32" r="21.2" fill="none" stroke="#fff" stroke-width="7.6"/>
+      <rect x="24" y="20.4" width="40" height="13.2" fill="#000"/>
+      <path d="M27.1 31H40.9L39.8 64H28.2Z" fill="#000"/>
+    </mask>
   </defs>
-  <rect width="64" height="64" rx="14" fill="#0b0f19"/>
-  <g fill="none" stroke="url(#g)" transform="translate(32 32) scale(0.82) translate(-32 -32)">
-    <path d="M44.9 16.7A20 20 0 1 0 44.9 47.3" stroke-width="6.5"/>
-    <path d="M23 23H50M36.5 23V44.5" stroke-width="7"/>
+  <rect width="64" height="64" rx="14" fill="#f3f3ee"/>
+  <g transform="translate(32 32) scale(0.82) translate(-32 -32.5)">
+    <circle cx="32" cy="32" r="21.2" fill="none" stroke="url(#g)" stroke-width="7.6" mask="url(#m)"/>
+    <path d="M20.25 23H56L53.6 31H38.3L37.4 58H30.6L29.7 31H17.23A14.8 14.8 0 0 1 20.25 23Z" fill="url(#g)"/>
   </g>
 </svg>
