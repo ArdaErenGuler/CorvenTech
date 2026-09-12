@@ -12,7 +12,21 @@ npm install
 npm run dev      # geliştirme sunucusu → http://localhost:5173
 npm run build    # üretim derlemesi → dist/
 npm run preview  # derlemeyi yerelde önizle
+npm run og       # paylaşım kapak görselini üretir → public/og-cover.png
 ```
+
+## Yayına alma (cPanel)
+
+Canlı adres: **https://www.corventech.tr**
+
+1. `npm run build` çalıştırın.
+2. `dist/` klasörünün **içindekileri** (klasörün kendisini değil) cPanel → File Manager ile `public_html` içine yükleyin. Gizli dosyaları göstermeyi açın, `.htaccess` de yüklenmeli.
+3. cPanel → SSL/TLS Status → **Run AutoSSL**. Sertifika gelene kadar `.htaccess` içindeki https yönlendirmesi devreye girmez.
+4. Kontrol: `https://www.corventech.tr/og-cover.png` açılmalı; `http://corventech.tr` adresi `https://www.corventech.tr` adresine yönlenmeli.
+
+`public/` içindeki dosyalar (`.htaccess`, `robots.txt`, `sitemap.xml`, `og-cover.png`, `favicon.svg`) derlemede olduğu gibi `dist/` köküne kopyalanır.
+
+Alan adı değişirse şu dört yeri güncelleyin: `index.html` (canonical, og:url, og:image), `src/data/site.js` (`company.url`), `public/robots.txt`, `public/sitemap.xml`, `public/.htaccess`.
 
 ## Sayfa yapısı
 

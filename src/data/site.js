@@ -6,6 +6,9 @@
 
 export const company = {
   name: 'CorvenTech',
+  // Kanonik adres. Değişirse index.html (canonical, og:url, og:image) ve
+  // public/robots.txt, public/sitemap.xml, public/.htaccess içindeki adresler de güncellenmeli.
+  url: 'https://www.corventech.tr',
   brandSub: 'Yazılım & Girişim',
   motto: 'Fikirden koda, koddan ürüne.',
   description:
