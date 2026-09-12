@@ -120,7 +120,7 @@ export const ventures = [
     category: 'Stok ve Envanter Yönetimi',
     tagline: 'İşletmeye özel stok, maliyet ve harcama takibi',
     description:
-      'İşletmelerin stoğunu, maliyetini ve günlük harcamalarını takip ettiği web uygulaması. Finans ve avukat modülleri de içeriyor.',
+      'İşletmelerin stokunu, maliyetini ve günlük harcamalarını takip ettiği web uygulaması. Finans ve avukat modülleri de içeriyor.',
     longDescription:
       'GülerDepo, işletmelerin stok, maliyet ve harcamalarını tek yerden takip etmesi için geliştirildi. Her işletme kendi paneline kullanıcı adı ve şifreyle girer. Panel telefona da uyumludur; sahada hızlıca stok düşülebilir.',
     icon: 'package',
@@ -219,7 +219,7 @@ export const ventures = [
     platform: 'Web sitesi',
     status: 'Yayında',
     modules: [
-      { name: 'Hizmet tanıtımı', description: 'Reklam yönetimi, web tasarım, SEO ve ölçümleme hizmetleri ayrı ayrı anlatılır.' },
+      { name: 'Hizmet tanıtımı', description: 'Reklam yönetimi, web tasarımı, SEO ve ölçümleme hizmetleri ayrı ayrı anlatılır.' },
       { name: 'Referanslar', description: 'Ajansın çalıştığı markalar ve yapılan işler gösterilir.' },
       { name: 'Sık sorulan sorular', description: 'Ziyaretçinin merak ettiği konular tek yerde cevaplanır.' },
       { name: 'Tek sayfa yapı', description: 'Hakkımızda, hizmetler, referanslar ve iletişim aynı sayfada; menüden ilgili bölüme geçilir.' },

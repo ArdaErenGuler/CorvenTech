@@ -9,12 +9,33 @@ export default function ContactCard({ channel, primary = false }) {
   const { showToast } = useUI();
   const linkProps = external ? { target: '_blank', rel: 'noopener noreferrer' } : {};
 
+  /** Pano API'si engelliyse (eski tarayıcı, güvensiz bağlam) geçici bir alanla kopyalamayı dener. */
+  function copyFallback() {
+    const field = document.createElement('textarea');
+    field.value = value;
+    field.setAttribute('readonly', '');
+    field.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+    document.body.append(field);
+    field.select();
+    try {
+      return document.execCommand('copy');
+    } catch {
+      return false;
+    } finally {
+      field.remove();
+    }
+  }
+
   async function copy() {
     try {
       await navigator.clipboard.writeText(value);
       showToast(`${label} adresi kopyalandı.`);
     } catch {
-      showToast('Kopyalanamadı; adresi seçip elle kopyalayabilirsiniz.');
+      showToast(
+        copyFallback()
+          ? `${label} adresi kopyalandı.`
+          : 'Kopyalanamadı; adresi seçip elle kopyalayabilirsiniz.',
+      );
     }
   }
 

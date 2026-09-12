@@ -12,7 +12,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-[88vh] items-center overflow-hidden pt-40 pb-24 md:pt-48 md:pb-28"
+      className="relative flex min-h-[88vh] items-center overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-20 md:pt-48 md:pb-28"
     >
       <HeroCanvas />
 

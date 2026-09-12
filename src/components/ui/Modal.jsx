@@ -45,18 +45,20 @@ export default function Modal({ open, onClose, labelledBy, size = 'md', children
         role="dialog"
         aria-modal="true"
         aria-labelledby={labelledBy}
-        className={`animate-modal-in relative max-h-[90vh] w-full overflow-y-auto rounded-2xl border border-line-strong bg-surface p-7 shadow-lg inset-shadow-highlight sm:p-9 ${SIZES[size]}`}
+        className={`animate-modal-in relative flex max-h-[90vh] w-full flex-col rounded-2xl border border-line-strong bg-surface shadow-lg inset-shadow-highlight ${SIZES[size]}`}
       >
         <button
           ref={closeButtonRef}
           type="button"
           onClick={onClose}
           aria-label="Kapat"
-          className="absolute top-5 right-5 grid size-9 place-items-center rounded-full border border-line bg-surface-2 text-muted transition-colors hover:border-red-500 hover:bg-red-500 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          className="absolute top-5 right-5 z-10 grid size-9 place-items-center rounded-full border border-line bg-surface-2 text-muted transition-colors hover:border-red-500 hover:bg-red-500 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         >
           <Icon name="x" className="size-4" strokeWidth={2} />
         </button>
-        {children}
+
+        {/* Kaydırma iç kapta: kapat düğmesi içerikle birlikte yukarı kaymaz */}
+        <div className="overflow-y-auto overscroll-contain p-7 sm:p-9">{children}</div>
       </div>
     </div>
   );

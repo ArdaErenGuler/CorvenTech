@@ -27,7 +27,7 @@ export default function VentureCard({ venture }) {
       <h3 className="mt-1.5 font-display text-xl font-bold">{name}</h3>
       <p className="mt-2 mb-6 text-sm leading-relaxed text-muted">{description}</p>
 
-      <div className="mt-auto flex items-center justify-between gap-3 border-t border-line pt-5">
+      <div className="mt-auto flex flex-wrap items-center justify-between gap-x-3 gap-y-2 border-t border-line pt-5">
         {url ? (
           <a
             href={url}

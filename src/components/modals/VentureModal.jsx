@@ -27,10 +27,12 @@ export default function VentureModal() {
     <Modal open={Boolean(venture)} onClose={closeModal} labelledBy="venture-modal-title" size="lg">
       {venture && (
         <>
-          <Badge icon={venture.icon}>{venture.category}</Badge>
-          <h2 id="venture-modal-title" className="mt-4 pr-10 font-display text-3xl font-bold">
-            {venture.name}
-          </h2>
+          <div className="pr-12">
+            <Badge icon={venture.icon}>{venture.category}</Badge>
+            <h2 id="venture-modal-title" className="mt-4 font-display text-3xl font-bold">
+              {venture.name}
+            </h2>
+          </div>
           <p className="mt-2 font-medium text-body">{venture.tagline}</p>
 
           <div className="mt-6 grid gap-3 sm:grid-cols-3">

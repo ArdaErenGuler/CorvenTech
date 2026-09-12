@@ -16,7 +16,7 @@
   --color-heading: #f8fafc;
   --color-body: #e2e8f0;
   --color-muted: #94a3b8;
-  --color-dim: #64748b;
+  --color-dim: #7b899d;
 
   /* Vurgu */
   --color-accent: #00b4d8;
@@ -110,6 +110,8 @@
 @layer base {
   html {
     color-scheme: dark;
+    /* Modal açılınca kaydırma çubuğu kaybolup sayfa yatay kaymasın */
+    scrollbar-gutter: stable;
     scroll-behavior: smooth;
     scroll-padding-top: 5.5rem;
   }
@@ -174,17 +176,19 @@
   ::-webkit-scrollbar-thumb:hover {
     background: var(--color-accent);
   }
+}
 
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
+/* Katman dışında: @utility ile üretilen animate-* sınıflarını ezebilmesi için
+   (katmanlı CSS her zaman katmansızdan önce gelir, özgüllük fark etmez). */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 
-    .animate-modal-in,
-    .animate-toast-in,
-    .animate-drawer-in,
-    .animate-fade-in {
-      animation: none;
-    }
+  .animate-modal-in,
+  .animate-toast-in,
+  .animate-drawer-in,
+  .animate-fade-in {
+    animation: none;
   }
 }
