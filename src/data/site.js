@@ -84,7 +84,7 @@ export const sections = {
     tag: 'Ekibimiz',
     title: 'Hakkımızda',
     description:
-      'CorvenTech, kendi girişimlerini geliştiren iki yazılımcının ortak çatısı. Fikirleri çalışan ve kullanışlı ürünlere dönüştürmeyi seviyoruz.',
+      'CorvenTech, kendi girişimlerini geliştiren iki yazılımcının ortak çatısı. Fikirleri, insanların gerçekten kullanacağı çalışan ürünlere dönüştürüyoruz.',
   },
   contact: {
     icon: 'mail',
