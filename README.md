@@ -32,30 +32,37 @@ Alan adı değişirse şu dört yeri güncelleyin: `index.html` (canonical, og:u
 
 | Bölüm | İçerik |
 | --- | --- |
-| Navbar | Logo, 5 bağlantı, "Bize Ulaşın" düğmesi; mobilde sağdan açılan çekmece |
-| Hero | Hareketli bağlantı ağı (canvas), başlık ve iki düğme |
-| Girişimlerimiz | GülerDepo, dersmate, SiteFlowTR, My-Gen Biyoteknoloji, Brox Digital; "Tümü / Ürünler / Web Siteleri" filtresi ve detay penceresi |
-| Çözümlerimiz | 6 hizmet kartı |
-| Süreç | 4 adımlı çalışma süreci |
-| Hakkımızda | Kısa tanıtım ve iki kurucu kartı (fotoğraf, LinkedIn, GitHub) |
-| İletişim | E-posta ve Instagram kartları |
-| Footer | Marka, girişimler, hızlı bağlantılar, iletişim |
+| Navbar | Logo, 5 bağlantı, "Bize Ulaşın" düğmesi; aktif bölüm noktayla işaretlenir, mobilde sağdan açılan çekmece |
+| Hero | Yörünge animasyonu (canvas), sola dayalı başlık ve iki düğme |
+| 01 Girişimlerimiz | GülerDepo, dersmate, SiteFlowTR, My-Gen Biyoteknoloji, Brox Digital; liste satırları, "Tümü / Ürünler / Web Siteleri" filtresi ve detay penceresi |
+| 02 Çözümlerimiz | 6 hizmet, iki sütunlu çizgili liste |
+| 03 Süreç | 4 adım, ızgara çizgileriyle bölünmüş alanlar |
+| 04 Hakkımızda | Kısa tanıtım ve iki kurucu satırı (fotoğraf, LinkedIn, GitHub) |
+| 05 İletişim | E-posta ve Instagram satırları |
+| Footer | Marka, menü, iletişim ve telif satırı |
 
 ## Tasarım sistemi
 
-Koyu, mat antrasit-lacivert tema; tokenlar `src/index.css` içindeki `@theme` bloğunda tanımlı:
+Koyu antrasit-lacivert tema, camgöbeği marka vurgusu. Tokenlar `src/index.css` içindeki `@theme` bloğunda:
 
 | Token | Değer | Kullanım |
 | --- | --- | --- |
-| `ink` | `#0B0F19` | Sayfa zemini |
-| `ink-soft` | `#111625` | Şerit bölümler, footer |
-| `surface` / `surface-2` | `#161C2E` / `#1C243A` | Kartlar, pencereler, ikincil düğmeler |
-| `heading` / `body` / `muted` | `#F8FAFC` / `#E2E8F0` / `#94A3B8` | Başlık, metin, ikincil metin |
-| `accent` | `#00B4D8` | Marka vurgusu, birincil düğme, ikonlar |
-| `line` | `rgba(255,255,255,.08)` | Kenarlık ve ayraçlar |
+| `ink` | `#0B0F19` | Sayfa zemini (tüm sayfa tek zemin) |
+| `ink-soft` | `#111625` | Pencere içi bilgi kutuları |
+| `surface` / `surface-2` | `#161C2E` / `#1C243A` | Pencereler, ikincil düğmeler, satır hover |
+| `heading` / `body` / `muted` / `dim` | `#F8FAFC` / `#E2E8F0` / `#94A3B8` / `#7B899D` | Metin hiyerarşisi |
+| `accent` / `accent-light` | `#00B4D8` / `#48CAE4` | Marka vurgusu, birincil düğme, ikonlar |
+| `line` / `line-strong` | `rgba(255,255,255,.12)` / `.20` | Kenarlık ve ayraçlar |
 
-Fontlar: **Plus Jakarta Sans** (metin ve başlık), **Space Grotesk** (etiketler).
-Camgöbeği zemin üzerindeki metinler, okunabilirlik için koyu renktedir.
+**Kurallar:**
+
+- **Tek yazı tipi ailesi: Manrope.** Hiyerarşi yalnızca ağırlık (400–800) ve boyutla kurulur; ayrı bir etiket fontu yoktur.
+- **Bölüm başlığı:** sıra numarası + ince çizgi + etiket üst satırda, başlık sola dayalı, açıklama geniş ekranda sağ sütunda. Ortalanmış rozet kalıbı kullanılmaz.
+- **Yüzeyler:** cam/bevel parlaması, kutu gölgesi ve atmosferik ışık lekesi yok. Ayrım kenarlık, düz zemin tonu ve boşlukla kurulur. Tek gölge tokenı (`shadow-overlay`) yalnızca pencere ve çekmecede kullanılır.
+- **Köşeler:** kart ve düğme 8px (`rounded-lg`), etiket 4px (`rounded`), pencere 12px (`rounded-xl`). Hap biçim kullanılmaz.
+- **Bölüm ayrımı:** dönüşümlü açık/koyu şerit yok; bölümler üstlerindeki tek saç teli çizgiyle ayrılır. Izgara ayraçları hücre kenarlığıyla çizilir (ebeveyn zemini + `gap-px` yöntemi giriş animasyonuyla çakışır).
+- **Arka plan:** yukarıdan aşağı sönümlenen ince nokta ızgarası.
+- Camgöbeği zemin üzerindeki metinler, okunabilirlik için koyu renktedir.
 
 ## Klasör yapısı
 
@@ -68,7 +75,7 @@ src/
 ├── components/
 │   ├── layout/             # Navbar, MobileDrawer, Footer
 │   ├── ui/                 # Button, Badge, Chip, Card, Modal, Toast, Section, SectionHeader, Icon, …
-│   ├── cards/              # VentureCard, SolutionCard, ProcessStep, FounderCard, ContactCard
+│   ├── cards/              # VentureRow, FounderCard, ContactCard
 │   ├── modals/             # VentureModal, ContactModal
 │   └── hero/HeroCanvas.jsx # Hero arka plan animasyonu
 ├── sections/               # Hero, Ventures, Solutions, Process, About, Contact
