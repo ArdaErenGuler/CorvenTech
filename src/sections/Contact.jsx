@@ -13,9 +13,9 @@ export default function Contact() {
         <SectionHeader index="05" tag={tag} title={title} description={description} />
       </Reveal>
 
-      <div className="mt-12 grid gap-px bg-line">
+      <div className="mt-12">
         {contactChannels.map((channel, index) => (
-          <Reveal key={channel.id} delay={index * 90} className="bg-ink">
+          <Reveal key={channel.id} delay={index * 90} className="border-t border-line last:border-b">
             <ContactCard channel={channel} primary={index === 0} />
           </Reveal>
         ))}

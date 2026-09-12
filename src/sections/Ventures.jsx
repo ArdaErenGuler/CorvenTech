@@ -39,7 +39,7 @@ export default function Ventures() {
                 }`}
               >
                 {item.label}
-                <span className={`ml-2 tabular-nums ${active ? 'text-ink/60' : 'text-dim'}`}>{countOf(item.id)}</span>
+                <span className={`ml-2 tabular-nums ${active ? 'text-ink' : 'text-dim'}`}>{countOf(item.id)}</span>
               </button>
             );
           })}

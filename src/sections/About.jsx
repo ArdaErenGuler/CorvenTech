@@ -13,9 +13,13 @@ export default function About() {
         <SectionHeader index="04" tag={tag} title={title} description={description} />
       </Reveal>
 
-      <div className="mt-12 grid gap-px bg-line sm:grid-cols-2">
+      <div className="mt-12 grid sm:grid-cols-2">
         {founders.map((founder, index) => (
-          <Reveal key={founder.id} delay={index * 90} className="bg-ink">
+          <Reveal
+            key={founder.id}
+            delay={index * 90}
+            className="h-full border-t border-line sm:odd:border-r"
+          >
             <FounderCard founder={founder} />
           </Reveal>
         ))}

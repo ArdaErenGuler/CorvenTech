@@ -44,7 +44,8 @@ export default function ContactCard({ channel, primary = false }) {
         <Icon name={icon} className="size-5 shrink-0 text-accent" />
         <div className="min-w-0">
           <p className="text-sm text-muted">{label}</p>
-          <p className="mt-0.5 truncate text-lg font-bold text-heading">{value}</p>
+          {/* Uzun e-posta adresi dar ekranda kırpılmasın, gerekirse alt satıra taşsın */}
+          <p className="mt-0.5 text-base font-bold break-words text-heading sm:text-lg">{value}</p>
         </div>
       </div>
 
