@@ -2,18 +2,15 @@ import { useId } from 'react';
 import { company } from '../../data/site';
 
 /**
- * CorvenTech amblemi: halka biçiminde bir C ve içinden geçen T.
- * Halka, T'nin geçtiği yerlerde ince bir boşluk bırakacak şekilde maskelenir.
- * Renkler tema tokenlarından gelir; Logo birden çok yerde kullanıldığı için id'ler useId ile benzersizleştirilir.
+ * CorvenTech amblemi: sağa açık bir C halkası ve içine oturan bir T.
+ * İki harf birbirine değmez; aralarındaki boşluk her boyutta korunur.
+ * Logo birden çok yerde kullanıldığı için gradient id'si useId ile benzersizleştirilir.
  */
-const RING = { cx: 32, cy: 32, r: 20, width: 7 };
-const MARK_PATH = 'M18.5 27.5H54.5M32 27.5V56';
-const MARK_CUT_PATH = 'M18.5 27.5H58M32 27.5V60';
+const C_PATH = 'M44.9 16.7A20 20 0 1 0 44.9 47.3';
+const T_PATH = 'M23 23H50M36.5 23V44.5';
 
 export function LogoMark({ className = 'size-10' }) {
-  const uid = useId();
-  const gradientId = `logo-gradient-${uid}`;
-  const maskId = `logo-mask-${uid}`;
+  const gradientId = `logo-gradient-${useId()}`;
 
   return (
     <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false" className={className}>
@@ -22,31 +19,11 @@ export function LogoMark({ className = 'size-10' }) {
           <stop offset="0%" stopColor="var(--color-accent-dark, #0096b7)" />
           <stop offset="100%" stopColor="var(--color-accent-light, #48cae4)" />
         </linearGradient>
-        <mask id={maskId}>
-          <rect width="64" height="64" fill="#000" />
-          <circle
-            cx={RING.cx}
-            cy={RING.cy}
-            r={RING.r}
-            fill="none"
-            stroke="#fff"
-            strokeWidth={RING.width}
-          />
-          {/* T'nin halkayı kestiği yerleri boşalt */}
-          <path d={MARK_CUT_PATH} fill="none" stroke="#000" strokeWidth="12.5" />
-        </mask>
       </defs>
-
-      <circle
-        cx={RING.cx}
-        cy={RING.cy}
-        r={RING.r}
-        fill="none"
-        stroke={`url(#${gradientId})`}
-        strokeWidth={RING.width}
-        mask={`url(#${maskId})`}
-      />
-      <path d={MARK_PATH} fill="none" stroke={`url(#${gradientId})`} strokeWidth="8" />
+      <g fill="none" stroke={`url(#${gradientId})`}>
+        <path d={C_PATH} strokeWidth="6.5" />
+        <path d={T_PATH} strokeWidth="7" />
+      </g>
     </svg>
   );
 }
