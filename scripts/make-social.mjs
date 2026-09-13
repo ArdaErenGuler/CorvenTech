@@ -229,20 +229,26 @@ const made = [];
 
 /* ------------------------------------------------------------------ profil */
 
-function profile({ file, bg, fill, ringTint }) {
+// Kullanımdaki profil fotoğrafı: koyu antrasit zemin, sol alttan sağ üste camgöbeği→mavi degrade amblem.
+// Başka renk denemeleri için: node scripts/make-avatar.mjs
+{
   const S = 1080;
   const size = 660;
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${S}" height="${S}" viewBox="0 0 ${S} ${S}">
-    <rect width="${S}" height="${S}" fill="${bg}"/>
-    ${ringTint ? `<circle cx="${S / 2}" cy="${S / 2}" r="${S / 2 - 34}" fill="none" stroke="${ringTint}" stroke-width="3"/>` : ''}
-    ${emblem({ x: (S - size) / 2, y: (S - size) / 2, size, fill })}
+    <rect width="${S}" height="${S}" fill="#0d1117"/>
+    ${emblem({
+      x: (S - size) / 2,
+      y: (S - size) / 2,
+      size,
+      // Degrade sol alttan (açık) sağ üste (koyu) akar; emblem() gradyanının yönü budur.
+      stops: [
+        ['0%', '#5bd8f0'],
+        ['100%', '#0077b6'],
+      ],
+    })}
   </svg>`;
-  made.push(render(file, svg, S));
+  made.push(render('profil.png', svg, S));
 }
-
-profile({ file: 'profil-koyu.png', bg: C.ink, ringTint: 'rgba(72,202,228,0.22)' });
-profile({ file: 'profil-acik.png', bg: C.light });
-profile({ file: 'profil-camgobegi.png', bg: C.accent, fill: '#0b1c3a' });
 
 /* --------------------------------------------------------------- gönderiler */
 
