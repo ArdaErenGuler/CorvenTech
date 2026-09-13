@@ -12,6 +12,7 @@ npm run dev      # geliştirme sunucusu → http://localhost:5173
 npm run build    # üretim derlemesi → dist/
 npm run preview  # derlemeyi yerelde önizle
 npm run og       # paylaşım kapak görselini üretir → public/og-cover.png
+npm run sosyal   # Instagram görsellerini üretir → sosyal/
 npm run zip      # derleyip cPanel'e yüklenecek tek zip üretir → corventech-site.zip
 ```
 
@@ -27,6 +28,10 @@ Canlı adres: **https://www.corventech.tr**
 `public/` içindeki dosyalar (`.htaccess`, `robots.txt`, `sitemap.xml`, `og-cover.png`, `favicon.svg`) derlemede olduğu gibi `dist/` köküne kopyalanır.
 
 Alan adı değişirse şu dört yeri güncelleyin: `index.html` (canonical, og:url, og:image), `src/data/site.js` (`company.url`), `public/robots.txt`, `public/sitemap.xml`, `public/.htaccess`.
+
+## Sosyal medya
+
+`npm run sosyal` komutu `sosyal/` klasörüne Instagram görsellerini üretir: profil fotoğrafı (3 seçenek), 7 kareli tanıtım karuseli, açılış hikâyesi ve öne çıkan kapakları. Metinler `src/data/site.js`'den okunur; şablon `scripts/make-social.mjs` içindedir. Hesap ayarları, biyografi ve gönderi metinleri için `sosyal/instagram-rehber.md`.
 
 ## Sayfa yapısı
 

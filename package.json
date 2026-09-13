@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "og": "node scripts/make-og-image.mjs",
-    "zip": "npm run build && node scripts/make-zip.mjs"
+    "zip": "npm run build && node scripts/make-zip.mjs",
+    "sosyal": "node scripts/make-social.mjs"
   },
   "dependencies": {
     "react": "^19.3.0",
