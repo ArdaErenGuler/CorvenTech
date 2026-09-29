@@ -6,7 +6,7 @@ import { useUI } from '../../context/UIContext';
 
 const { contact } = sections;
 
-/** "Bize Ulaşın" penceresi: e-posta ve Instagram kartları. */
+/** "Bize Ulaşın" penceresi: WhatsApp, e-posta ve Instagram kartları. */
 export default function ContactModal() {
   const { modal, closeModal } = useUI();
 

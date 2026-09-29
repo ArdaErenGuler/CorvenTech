@@ -45,7 +45,7 @@ Alan adı değişirse şu dört yeri güncelleyin: `index.html` (canonical, og:u
 | 03 Paketler | Web, Sosyal Medya ve birleşik paket; fiyat yazılmaz, teklif düğmesiyle iletişime yönlendirir |
 | 04 Süreç | 4 adım, ızgara çizgileriyle bölünmüş alanlar |
 | 05 Hakkımızda | Kısa tanıtım ve üç kurucu satırı (fotoğraf, LinkedIn, GitHub) |
-| 06 İletişim | E-posta ve Instagram satırları |
+| 06 İletişim | WhatsApp, e-posta ve Instagram satırları |
 | Footer | Marka, menü, iletişim ve telif satırı |
 
 ## Tasarım sistemi
@@ -97,5 +97,5 @@ Metinlerin tamamı `src/data/site.js` içindedir; bileşenlere dokunmadan düzen
 - **Paket:** `packages` dizisine bir nesne ekleyin. Sitede fiyat yayınlanmaz; `items` kapsamı, `footnote` ise bakım/çalışma biçimini anlatır. Fiyat metni `sections.packages.note` içindedir.
 - **Yeni girişim:** `ventures` dizisine bir nesne ekleyin. `type` alanı `product` (Ürün) ya da `website` (Web Sitesi) olmalı; filtre sayıları kendiliğinden güncellenir. `url` alanı kartta ve detay penceresinde site bağlantısı olarak gösterilir.
 - **Ekip fotoğrafı:** Görseli `public/images/ekip/` klasörüne koyup ilgili kişinin `photo` alanına yolunu yazın (örn. `/images/ekip/arda-eren-guler.jpg`). Fotoğraf yoksa baş harfler gösterilir.
-- **İletişim:** `company.email` ve `company.instagram` alanları; iletişim bölümü, pencere ve footer bu bilgileri kullanır.
+- **İletişim:** `company.email`, `company.instagram` ve `company.whatsapp` alanları; iletişim bölümü, pencere ve footer `contactChannels` listesini kullanır. WhatsApp bağlantısı wa.me biçiminde ülke kodlu ve boşluksuz yazılır (`905368861807`).
 - **İkonlar:** `src/components/ui/Icon.jsx` içindeki `PATHS` nesnesine yeni ikon eklenebilir.
