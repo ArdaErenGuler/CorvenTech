@@ -20,7 +20,7 @@ export default function Packages() {
   return (
     <Section id="paketler">
       <Reveal>
-        <SectionHeader index="03" tag={tag} title={title} description={description} />
+        <SectionHeader index="04" tag={tag} title={title} description={description} />
       </Reveal>
 
       <div className="mt-12 grid lg:grid-cols-3">

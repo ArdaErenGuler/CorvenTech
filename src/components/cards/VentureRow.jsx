@@ -1,14 +1,13 @@
 import Icon from '../ui/Icon';
 import { useUI } from '../../context/UIContext';
-import { ventureTypes } from '../../data/site';
 import { hostOf } from '../../utils/url';
 
 /**
  * Girişim satırı: kart ızgarası yerine tam genişlikte liste satırı.
- * Solda ad ve tür, ortada açıklama, sağda site adresi ve detay düğmesi.
+ * Solda ad ve kategori, ortada açıklama, sağda site adresi ve detay düğmesi.
  */
 export default function VentureRow({ venture }) {
-  const { id, type, name, category, description, icon, url } = venture;
+  const { id, name, category, description, icon, url } = venture;
   const { openModal } = useUI();
 
   return (
@@ -17,13 +16,7 @@ export default function VentureRow({ venture }) {
         <Icon name={icon} className="mt-1 size-5 shrink-0 text-accent" />
         <div className="min-w-0">
           <h3 className="text-xl font-extrabold">{name}</h3>
-          <p className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted">
-            <span>{category}</span>
-            <span className="text-dim" aria-hidden="true">
-              ·
-            </span>
-            <span className="text-dim">{ventureTypes[type]}</span>
-          </p>
+          <p className="mt-1.5 text-sm text-muted">{category}</p>
         </div>
       </div>
 

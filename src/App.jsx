@@ -6,6 +6,7 @@ import VentureModal from './components/modals/VentureModal';
 import ContactModal from './components/modals/ContactModal';
 import Hero from './sections/Hero';
 import Ventures from './sections/Ventures';
+import References from './sections/References';
 import Solutions from './sections/Solutions';
 import Packages from './sections/Packages';
 import Process from './sections/Process';
@@ -19,6 +20,7 @@ export default function App() {
       <main>
         <Hero />
         <Ventures />
+        <References />
         <Solutions />
         <Packages />
         <Process />

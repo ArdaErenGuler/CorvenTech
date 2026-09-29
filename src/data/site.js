@@ -55,9 +55,11 @@ export const contactChannels = [
   },
 ];
 
+// Yedi bağlantı dar masaüstünde taşmasın diye etiketler kısa tutulur.
 export const navLinks = [
-  { label: 'Girişimlerimiz', href: '#girisimlerimiz' },
-  { label: 'Çözümlerimiz', href: '#cozumlerimiz' },
+  { label: 'Girişimler', href: '#girisimlerimiz' },
+  { label: 'Referanslar', href: '#referanslar' },
+  { label: 'Çözümler', href: '#cozumlerimiz' },
   { label: 'Paketler', href: '#paketler' },
   { label: 'Süreç', href: '#surec' },
   { label: 'Hakkımızda', href: '#hakkimizda' },
@@ -79,9 +81,9 @@ export const sections = {
   ventures: {
     icon: 'layers',
     tag: 'Girişimlerimiz',
-    title: 'Geliştirdiğimiz ürünler ve projeler',
+    title: 'Kendi geliştirdiğimiz ürünler',
     description:
-      'Kendi ürünlerimiz ve hazırladığımız web siteleri. Sitelerini ziyaret edebilir, detaylarına göz atabilirsiniz.',
+      'Fikrinden yayına kadar kendi geliştirdiğimiz ürünler. Sitelerini ziyaret edebilir, detaylarına göz atabilirsiniz.',
   },
   solutions: {
     icon: 'code',
@@ -89,6 +91,13 @@ export const sections = {
     title: 'Neler yapıyoruz?',
     description:
       'Kendi ürünlerimizi geliştirirken edindiğimiz deneyimi, işletmenize uygun çözümlere dönüştürüyoruz.',
+  },
+  references: {
+    icon: 'globe',
+    tag: 'Referanslar',
+    title: 'Müşterilerimiz için yaptığımız siteler',
+    description:
+      'Teslim ettiğimiz ve yayında olan web siteleri. Kartın üzerine tıklayarak sitelerin kendisini gezebilirsiniz.',
   },
   packages: {
     icon: 'briefcase',
@@ -123,28 +132,16 @@ export const sections = {
   },
 };
 
-/** Girişim türleri: kart etiketi ve filtre sekmeleri bu adları kullanır. */
-export const ventureTypes = {
-  product: 'Ürün',
-  website: 'Web Sitesi',
-};
-
-export const ventureFilters = [
-  { id: 'all', label: 'Tümü' },
-  { id: 'product', label: 'Ürünler' },
-  { id: 'website', label: 'Web Siteleri' },
-];
-
 /**
- * Girişimler ve projeler.
- * Kartta: type, category, name, description ve url.
+ * Kendi geliştirdiğimiz ürünler. Müşteriler için yapılan web siteleri burada değil,
+ * `references` dizisinde durur.
+ * Satırda: category, name, description ve url.
  * Detay penceresinde: tagline, longDescription, platform, status, modules ve stack.
  * `linkLabel` verilmezse detay penceresindeki düğme "Siteyi Ziyaret Et" yazar.
  */
 export const ventures = [
   {
     id: 'gulerdepo',
-    type: 'product',
     name: 'GülerDepo',
     category: 'Stok ve Envanter Yönetimi',
     tagline: 'İşletmeye özel stok, maliyet ve harcama takibi',
@@ -166,7 +163,6 @@ export const ventures = [
   },
   {
     id: 'dersmate',
-    type: 'product',
     name: 'dersmate',
     category: 'Öğrenci Sosyal Ağı',
     tagline: 'Öğrencilerin buluştuğu, paylaştığı ve birbirine yardım ettiği sosyal ağ',
@@ -188,7 +184,6 @@ export const ventures = [
   },
   {
     id: 'siteflowtr',
-    type: 'product',
     name: 'SiteFlowTR',
     category: 'Site Yönetim Paneli',
     tagline: 'Web sitenizi kod yazmadan düzenleyin',
@@ -211,50 +206,6 @@ export const ventures = [
     stack: ['React 19', 'Vite', 'Node.js', 'Express'],
     url: 'https://panel.broxdigital.com',
     linkLabel: 'Panele Git',
-  },
-  {
-    id: 'mygen',
-    type: 'website',
-    name: 'My-Gen Biyoteknoloji',
-    category: 'Ürün Kataloğu Sitesi',
-    tagline: 'Laboratuvar ürünlerini bulup fiyat sorabileceğiniz katalog',
-    description:
-      "İzmir'deki My-Gen Biyoteknoloji için hazırlanan laboratuvar ürünleri kataloğu. Ürün arama, karşılaştırma ve fiyat sorma formu içeriyor.",
-    longDescription:
-      "My-Gen Biyoteknoloji'nin ELISA kitleri, antikorlar ve proteinler gibi laboratuvar ürünlerini listeleyen katalog sitesi. Ziyaretçi ürün arayabiliyor, ürünleri karşılaştırabiliyor ve formla fiyat sorabiliyor. Sitede satış yapılmıyor.",
-    icon: 'flask',
-    platform: 'Web sitesi',
-    status: 'Yayında',
-    modules: [
-      { name: 'Ürün arama', description: 'Gen adı ya da ürün kodu yazarken öneriler çıkar; sonuçlar kategoriye göre daraltılır.' },
-      { name: 'Ürün karşılaştırma', description: 'Ürünler bir listeye eklenip yan yana karşılaştırılır.' },
-      { name: 'Ürün sayfaları', description: 'Her üründe teknik bilgiler, görseller ve PDF kullanım kılavuzu bulunur.' },
-      { name: 'Fiyat sorma formu', description: 'Fiyatlar sitede yazmaz; ziyaretçi ürün sayfasındaki formla fiyat sorar.' },
-    ],
-    stack: ['Node.js', 'Express', 'Tailwind CSS', 'JavaScript'],
-    url: 'https://www.mygenbio.com.tr',
-  },
-  {
-    id: 'broxdigital',
-    type: 'website',
-    name: 'Brox Digital',
-    category: 'Ajans Tanıtım Sitesi',
-    tagline: 'Dijital pazarlama ajansı için tek sayfalık tanıtım sitesi',
-    description:
-      'Dijital pazarlama ajansı Brox Digital için hazırlanan tanıtım sitesi. Reklam, web sitesi ve SEO hizmetlerini tek sayfada anlatıyor.',
-    longDescription:
-      'Brox Digital; Google, Meta, TikTok ve Yandex reklamlarını yöneten, web sitesi kuran ve SEO çalışmaları yapan bir dijital pazarlama ajansı. Tanıtım sitesi hizmetleri, referansları ve sık sorulan soruları tek sayfada topluyor.',
-    icon: 'trending-up',
-    platform: 'Web sitesi',
-    status: 'Yayında',
-    modules: [
-      { name: 'Hizmet tanıtımı', description: 'Reklam yönetimi, web tasarımı, SEO ve ölçümleme hizmetleri ayrı ayrı anlatılır.' },
-      { name: 'Referanslar', description: 'Ajansın çalıştığı markalar ve yapılan işler gösterilir.' },
-      { name: 'Sık sorulan sorular', description: 'Ziyaretçinin merak ettiği konular tek yerde cevaplanır.' },
-      { name: 'Tek sayfa yapı', description: 'Hakkımızda, hizmetler, referanslar ve iletişim aynı sayfada; menüden ilgili bölüme geçilir.' },
-    ],
-    stack: ['HTML', 'CSS', 'JavaScript'],
-    url: 'https://www.broxdigital.com',
   },
 ];
 
@@ -298,6 +249,52 @@ export const solutions = [
     icon: 'edit',
     title: 'İçerik ve Görsel Üretimi',
     description: 'Gönderi görselleri, hikâye taslakları ve tanıtım metinleri; markanızın diline uygun şekilde.',
+  },
+];
+
+/**
+ * Müşteriler için yapılan web siteleri. Girişimlerden ayrı tutulur; liste uzadıkça ızgara
+ * kendiliğinden satır ekler, bölümün boyu kontrolden çıkmaz.
+ * Yeni referans için bu diziye bir nesne eklemek yeterli; başka dosyaya dokunulmaz.
+ * `domain` alanı punycode adresin okunur hâlidir; bağlantı `url` üzerinden kurulur.
+ */
+export const references = [
+  {
+    id: 'mygen',
+    name: 'My-Gen Biyoteknoloji',
+    category: 'Laboratuvar Ürünleri Kataloğu',
+    domain: 'mygenbio.com.tr',
+    url: 'https://www.mygenbio.com.tr',
+  },
+  {
+    id: 'broxdigital',
+    name: 'Brox Digital',
+    category: 'Dijital Pazarlama Ajansı',
+    domain: 'broxdigital.com',
+    url: 'https://www.broxdigital.com',
+  },
+  {
+    id: 'tugce-mimarlik',
+    name: 'Tuğçe Mimarlık',
+    category: 'Mimarlık ve Mühendislik Ofisi',
+    location: 'İzmir',
+    domain: 'tugcemimarlik.com.tr',
+    url: 'https://www.tugcemimarlik.com.tr/',
+  },
+  {
+    id: 'patika-pet-kuafor',
+    name: 'Patika Pet Kuaför',
+    category: 'Kedi ve Köpek Kuaförü',
+    location: 'Balıkesir',
+    domain: 'balıkesirpatikapetkuaför.com.tr',
+    url: 'https://www.xn--balkesirpatikapetkuafr-fic11l.com.tr/',
+  },
+  {
+    id: 'bircan-pet-kuafor',
+    name: 'Bir-Can Pet Kuaför',
+    category: 'Pet Kuaförü ve Köpek Eğitimi',
+    domain: 'bircanpetkuaför.com.tr',
+    url: 'https://www.xn--bircanpetkuafr-7pb.com.tr/',
   },
 ];
 

@@ -10,7 +10,7 @@ export default function Solutions() {
   return (
     <Section id="cozumlerimiz">
       <Reveal>
-        <SectionHeader index="02" tag={tag} title={title} description={description} />
+        <SectionHeader index="03" tag={tag} title={title} description={description} />
       </Reveal>
 
       {/* Kart yok: iki sütunlu, çizgiyle ayrılmış liste */}

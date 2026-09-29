@@ -10,7 +10,7 @@ export default function About() {
   return (
     <Section id="hakkimizda">
       <Reveal>
-        <SectionHeader index="05" tag={tag} title={title} description={description} />
+        <SectionHeader index="06" tag={tag} title={title} description={description} />
       </Reveal>
 
       {/* Üç kişi: geniş ekranda üç sütun, dar ekranda alt alta. Dikey ayraç yalnızca üç sütunda çizilir. */}

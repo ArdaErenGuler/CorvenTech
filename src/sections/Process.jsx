@@ -15,7 +15,7 @@ export default function Process() {
   return (
     <Section id="surec">
       <Reveal>
-        <SectionHeader index="04" tag={tag} title={title} description={description} />
+        <SectionHeader index="05" tag={tag} title={title} description={description} />
       </Reveal>
 
       <ol className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4">
