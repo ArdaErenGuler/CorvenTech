@@ -403,8 +403,7 @@ export const founders = [
     role: 'Kurucu Ortak',
     photo: null,
     links: {
-      linkedin:
-        'https://www.linkedin.com/in/gazi-%C3%BCniversitesi-y%C3%B6netim-bili%C5%9Fim-sistemleri-toplulu%C4%9Fu-59583434a',
+      linkedin: 'https://www.linkedin.com/in/melih-gurevin',
       github: 'https://github.com/gurevinmelih5-lang',
     },
   },
