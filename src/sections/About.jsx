@@ -10,15 +10,16 @@ export default function About() {
   return (
     <Section id="hakkimizda">
       <Reveal>
-        <SectionHeader index="04" tag={tag} title={title} description={description} />
+        <SectionHeader index="05" tag={tag} title={title} description={description} />
       </Reveal>
 
-      <div className="mt-12 grid sm:grid-cols-2">
+      {/* Üç kişi: geniş ekranda üç sütun, dar ekranda alt alta. Dikey ayraç yalnızca üç sütunda çizilir. */}
+      <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3">
         {founders.map((founder, index) => (
           <Reveal
             key={founder.id}
             delay={index * 90}
-            className="h-full border-t border-line sm:odd:border-r"
+            className="h-full border-t border-line lg:border-r lg:last:border-r-0"
           >
             <FounderCard founder={founder} />
           </Reveal>

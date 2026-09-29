@@ -12,7 +12,7 @@ export const company = {
   brandSub: 'Yazılım & Girişim',
   motto: 'Fikirden koda, koddan ürüne.',
   description:
-    'İki yazılımcının ortak çatısı. Kendi girişimlerimizi geliştiriyor, fikirleri çalışan ürünlere dönüştürüyoruz.',
+    'Kendi girişimlerini geliştiren üç kişilik ekip. İşletmelere web, mobil ve sosyal medya yönetimi hizmeti veriyoruz.',
   email: 'corventech1@gmail.com',
   instagram: { handle: '@corventech.tr', url: 'https://www.instagram.com/corventech.tr/' },
 };
@@ -42,6 +42,7 @@ export const contactChannels = [
 export const navLinks = [
   { label: 'Girişimlerimiz', href: '#girisimlerimiz' },
   { label: 'Çözümlerimiz', href: '#cozumlerimiz' },
+  { label: 'Paketler', href: '#paketler' },
   { label: 'Süreç', href: '#surec' },
   { label: 'Hakkımızda', href: '#hakkimizda' },
   { label: 'İletişim', href: '#iletisim' },
@@ -53,7 +54,7 @@ export const hero = {
     highlight: 'Kod Mimarisi',
   },
   description:
-    'Stok takibinden öğrenci platformlarına, site yönetim panellerinden kurumsal web sitelerine kadar farklı alanlarda ürünler geliştiriyoruz.',
+    'Kurumsal web sitelerinden işletme panellerine, sosyal medya yönetiminden içerik üretimine kadar; hem kendi ürünlerimizi geliştiriyor hem işletmelerin dijital işlerini üstleniyoruz.',
   primaryCta: { label: 'Girişimlerimizi Keşfet', href: '#girisimlerimiz' },
   secondaryCta: { label: 'İletişime Geç' },
 };
@@ -73,6 +74,15 @@ export const sections = {
     description:
       'Kendi ürünlerimizi geliştirirken edindiğimiz deneyimi, işletmenize uygun çözümlere dönüştürüyoruz.',
   },
+  packages: {
+    icon: 'briefcase',
+    tag: 'Paketler',
+    title: 'Nasıl çalışmak istersiniz?',
+    description:
+      'Web sitesi, sosyal medya yönetimi ya da ikisi bir arada. Aşağıdakiler en sık tercih edilen çalışma biçimleri; içerik işinize göre değişebilir.',
+    // Fiyat sitede yayınlanmaz; paket içeriği işe göre değiştiği için rakam iletişimde paylaşılır.
+    note: 'Paket içerikleri her işte değiştiği için fiyatı sitede yayınlamıyoruz. Ne yapmak istediğinizi yazın, size özel paketi ve fiyatı birlikte belirleyelim.',
+  },
   process: {
     icon: 'git-branch',
     tag: 'Süreç',
@@ -84,7 +94,7 @@ export const sections = {
     tag: 'Ekibimiz',
     title: 'Hakkımızda',
     description:
-      'CorvenTech, kendi girişimlerini geliştiren iki yazılımcının ortak çatısı. Fikirleri, insanların gerçekten kullanacağı çalışan ürünlere dönüştürüyoruz.',
+      'CorvenTech, kendi girişimlerini geliştiren üç kişilik bir ekip. Fikirleri, insanların gerçekten kullanacağı çalışan ürünlere dönüştürüyoruz.',
   },
   contact: {
     icon: 'mail',
@@ -263,6 +273,67 @@ export const solutions = [
     title: 'Arayüz Tasarımı',
     description: 'Kolay anlaşılan, göze hoş gelen ve herkesin rahatça kullanabileceği ekranlar.',
   },
+  {
+    icon: 'instagram',
+    title: 'Sosyal Medya Yönetimi',
+    description: 'Hesabınızın içeriğini planlıyor, gönderileri hazırlayıp paylaşıyor ve mesajları takip ediyoruz.',
+  },
+  {
+    icon: 'edit',
+    title: 'İçerik ve Görsel Üretimi',
+    description: 'Gönderi görselleri, hikâye taslakları ve tanıtım metinleri; markanızın diline uygun şekilde.',
+  },
+];
+
+/**
+ * Hizmet paketleri. Şirket kuruluşu tamamlanana kadar sitede fiyat yayınlanmaz;
+ * paketler yalnızca kapsamı anlatır, rakam iletişim üzerinden paylaşılır.
+ */
+export const packages = [
+  {
+    id: 'web',
+    icon: 'layout',
+    name: 'Web Paketi',
+    tagline: 'Çok sayfalı kurumsal web sitesi',
+    items: [
+      'Çok sayfalı, mobil uyumlu kurumsal site',
+      'Alan adı, hosting ve kurumsal e-posta kurulumu',
+      'Arama motorları için temel düzenlemeler',
+      'İçerik paneli: yazıyı ve görseli kendiniz değiştirirsiniz',
+      'Google İşletme Profili bağlantısı',
+    ],
+    footnote: 'Kurulum tek seferlik; site yayına girdikten sonra aylık bakım ve güncellemeyle devam eder.',
+  },
+  {
+    id: 'sosyal-medya',
+    icon: 'instagram',
+    name: 'Sosyal Medya Paketi',
+    tagline: 'Hesabınızı biz yönetelim',
+    items: [
+      'Ayda 5 gönderi tasarımı ve paylaşımı',
+      'Ayda 5 fotoğraf / görsel üretimi',
+      'İki günde bir 4 hikâye taslağı',
+      'İçerik takvimi ve paylaşım saatleri',
+      'Profil düzeni: biyografi, öne çıkanlar, kategori',
+      'Aylık erişim ve etkileşim raporu',
+    ],
+    footnote: 'Aylık çalışır. Gönderi ve hikâye sayısı işinize göre artırılabilir.',
+  },
+  {
+    id: 'web-sosyal-medya',
+    icon: 'layers',
+    name: 'Web + Sosyal Medya',
+    tagline: 'İkisi bir arada, tek elden',
+    featured: true,
+    items: [
+      'Web paketinin tamamı',
+      'Sosyal medya paketinin tamamı',
+      'Sitede ve sosyal medyada tek görsel dil',
+      'Tek ekip, tek muhatap',
+      'Önceliklendirilmiş destek',
+    ],
+    footnote: 'Siteyi yapan ekip sosyal medyayı da yürüttüğü için iki tarafın dili birbirini tutar.',
+  },
 ];
 
 export const process = [
@@ -311,6 +382,17 @@ export const founders = [
     links: {
       linkedin: 'https://www.linkedin.com/in/abdullahcosar/',
       github: 'https://github.com/Vellhale',
+    },
+  },
+  {
+    id: 'melih-gurevin',
+    name: 'Melih Gürevin',
+    role: 'Kurucu Ortak',
+    photo: null,
+    links: {
+      linkedin:
+        'https://www.linkedin.com/in/gazi-%C3%BCniversitesi-y%C3%B6netim-bili%C5%9Fim-sistemleri-toplulu%C4%9Fu-59583434a',
+      github: 'https://github.com/gurevinmelih5-lang',
     },
   },
 ];

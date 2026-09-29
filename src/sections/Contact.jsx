@@ -10,7 +10,7 @@ export default function Contact() {
   return (
     <Section id="iletisim">
       <Reveal>
-        <SectionHeader index="05" tag={tag} title={title} description={description} />
+        <SectionHeader index="06" tag={tag} title={title} description={description} />
       </Reveal>
 
       <div className="mt-12">

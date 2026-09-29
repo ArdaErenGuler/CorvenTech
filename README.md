@@ -38,13 +38,14 @@ Alan adı değişirse şu dört yeri güncelleyin: `index.html` (canonical, og:u
 
 | Bölüm | İçerik |
 | --- | --- |
-| Navbar | Logo, 5 bağlantı, "Bize Ulaşın" düğmesi; aktif bölüm noktayla işaretlenir, mobilde sağdan açılan çekmece |
+| Navbar | Logo, 6 bağlantı, "Bize Ulaşın" düğmesi; aktif bölüm noktayla işaretlenir, mobilde sağdan açılan çekmece |
 | Hero | Yörünge animasyonu (canvas), sola dayalı başlık ve iki düğme |
 | 01 Girişimlerimiz | GülerDepo, dersmate, SiteFlowTR, My-Gen Biyoteknoloji, Brox Digital; liste satırları, "Tümü / Ürünler / Web Siteleri" filtresi ve detay penceresi |
-| 02 Çözümlerimiz | 6 hizmet, iki sütunlu çizgili liste |
-| 03 Süreç | 4 adım, ızgara çizgileriyle bölünmüş alanlar |
-| 04 Hakkımızda | Kısa tanıtım ve iki kurucu satırı (fotoğraf, LinkedIn, GitHub) |
-| 05 İletişim | E-posta ve Instagram satırları |
+| 02 Çözümlerimiz | 8 hizmet (yazılım + sosyal medya), iki sütunlu çizgili liste |
+| 03 Paketler | Web, Sosyal Medya ve birleşik paket; fiyat yazılmaz, teklif düğmesiyle iletişime yönlendirir |
+| 04 Süreç | 4 adım, ızgara çizgileriyle bölünmüş alanlar |
+| 05 Hakkımızda | Kısa tanıtım ve üç kurucu satırı (fotoğraf, LinkedIn, GitHub) |
+| 06 İletişim | E-posta ve Instagram satırları |
 | Footer | Marka, menü, iletişim ve telif satırı |
 
 ## Tasarım sistemi
@@ -84,7 +85,7 @@ src/
 │   ├── cards/              # VentureRow, FounderCard, ContactCard
 │   ├── modals/             # VentureModal, ContactModal
 │   └── hero/HeroCanvas.jsx # Hero arka plan animasyonu
-├── sections/               # Hero, Ventures, Solutions, Process, About, Contact
+├── sections/               # Hero, Ventures, Solutions, Packages, Process, About, Contact
 ├── App.jsx
 └── index.css               # Tailwind + tasarım tokenları
 ```
@@ -93,6 +94,7 @@ src/
 
 Metinlerin tamamı `src/data/site.js` içindedir; bileşenlere dokunmadan düzenlenebilir.
 
+- **Paket:** `packages` dizisine bir nesne ekleyin. Sitede fiyat yayınlanmaz; `items` kapsamı, `footnote` ise bakım/çalışma biçimini anlatır. Fiyat metni `sections.packages.note` içindedir.
 - **Yeni girişim:** `ventures` dizisine bir nesne ekleyin. `type` alanı `product` (Ürün) ya da `website` (Web Sitesi) olmalı; filtre sayıları kendiliğinden güncellenir. `url` alanı kartta ve detay penceresinde site bağlantısı olarak gösterilir.
 - **Ekip fotoğrafı:** Görseli `public/images/ekip/` klasörüne koyup ilgili kişinin `photo` alanına yolunu yazın (örn. `/images/ekip/arda-eren-guler.jpg`). Fotoğraf yoksa baş harfler gösterilir.
 - **İletişim:** `company.email` ve `company.instagram` alanları; iletişim bölümü, pencere ve footer bu bilgileri kullanır.

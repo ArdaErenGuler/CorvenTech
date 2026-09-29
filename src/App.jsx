@@ -7,6 +7,7 @@ import ContactModal from './components/modals/ContactModal';
 import Hero from './sections/Hero';
 import Ventures from './sections/Ventures';
 import Solutions from './sections/Solutions';
+import Packages from './sections/Packages';
 import Process from './sections/Process';
 import About from './sections/About';
 import Contact from './sections/Contact';
@@ -19,6 +20,7 @@ export default function App() {
         <Hero />
         <Ventures />
         <Solutions />
+        <Packages />
         <Process />
         <About />
         <Contact />
