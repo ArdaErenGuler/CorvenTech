@@ -15,9 +15,9 @@ export const company = {
     'Kendi girişimlerini geliştiren üç kişilik ekip. İşletmelere web, mobil ve sosyal medya yönetimi hizmeti veriyoruz.',
   email: 'corventech1@gmail.com',
   instagram: { handle: '@corventech.tr', url: 'https://www.instagram.com/corventech.tr/' },
-  // wa.me numarayı ülke koduyla ve boşluksuz ister; ekranda okunaklı hali `display` alanında durur.
+  // Numara sitede yazı olarak gösterilmez, yalnızca bu bağlantının içinde durur.
+  // wa.me numarayı ülke koduyla ve boşluksuz ister.
   whatsapp: {
-    display: '0536 886 18 07',
     url: 'https://wa.me/905368861807?text=Merhaba%2C%20CorvenTech%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.',
   },
 };
@@ -27,7 +27,9 @@ export const contactChannels = [
   {
     id: 'whatsapp',
     label: 'WhatsApp',
-    value: company.whatsapp.display,
+    // Numara yerine çağrı metni yazılır; numara yalnızca bağlantının içindedir.
+    value: 'Mesaj gönderin, aynı gün dönelim',
+    shortLabel: 'WhatsApp',
     url: company.whatsapp.url,
     icon: 'message-circle',
     action: "WhatsApp'tan Yaz",

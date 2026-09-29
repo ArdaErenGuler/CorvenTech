@@ -43,7 +43,8 @@ export default function Footer() {
                     {...externalProps(channel)}
                   >
                     <Icon name={channel.icon} className="size-4" strokeWidth={2} />
-                    {channel.value}
+                    {/* Footer'da kısa ad varsa o kullanılır (WhatsApp satırı uzun çağrı metni taşır). */}
+                    {channel.shortLabel ?? channel.value}
                   </a>
                 </li>
               ))}
