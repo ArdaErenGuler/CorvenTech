@@ -30,8 +30,8 @@ if (!browser) {
 const TARGETS = [
   { id: 'corventech', url: company.url },
   ...ventures.map((v) => ({ id: v.id, url: v.url })),
-  // Instagram'da ayrı gönderisi olan referanslar (make-social.mjs → REFERENCE_POSTS)
-  ...references.filter((r) => ['mygen', 'broxdigital'].includes(r.id)).map((r) => ({ id: r.id, url: r.url })),
+  // Referanslar: Instagram'da ayrı gönderisi olanlar (make-social.mjs, make-site-posts.mjs)
+  ...references.map((r) => ({ id: r.id, url: r.url })),
 ];
 
 for (const t of TARGETS) {
