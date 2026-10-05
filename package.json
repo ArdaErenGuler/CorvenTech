@@ -8,13 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "og": "node scripts/make-og-image.mjs",
-    "ekran": "node scripts/make-shots.mjs",
-    "sosyal": "node scripts/make-social.mjs",
-    "kaydirmali": "node scripts/make-carousel.mjs",
-    "siteler": "node scripts/make-site-posts.mjs",
-    "kapaklar": "node scripts/make-photo-covers.mjs",
-    "uclu": "node scripts/make-triptych.mjs",
-    "hizmetler": "node scripts/make-triptych-hizmetler.mjs",    "zip": "npm run build && node scripts/make-zip.mjs"
+    "zip": "npm run build && node scripts/make-zip.mjs"
   },
   "dependencies": {
     "react": "^19.3.0",

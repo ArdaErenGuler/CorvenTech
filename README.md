@@ -12,8 +12,6 @@ npm run dev      # geliştirme sunucusu → http://localhost:5173
 npm run build    # üretim derlemesi → dist/
 npm run preview  # derlemeyi yerelde önizle
 npm run og       # paylaşım kapak görselini üretir → public/og-cover.png
-npm run ekran    # girişim sitelerinin ekran görüntülerini alır → sosyal/ekran/
-npm run sosyal   # Instagram görsellerini üretir → sosyal/
 npm run zip      # derleyip cPanel'e yüklenecek tek zip üretir → corventech-site.zip
 ```
 
@@ -32,7 +30,7 @@ Alan adı değişirse şu dört yeri güncelleyin: `index.html` (canonical, og:u
 
 ## Sosyal medya
 
-`npm run sosyal` komutu `sosyal/` klasörüne Instagram görsellerini üretir: profil fotoğrafı (3 seçenek), tek tek paylaşılacak 9 gönderi, açılış hikâyesi ve öne çıkan kapakları. Gönderilerdeki ekran görüntüleri `npm run ekran` ile kurulu Chrome/Edge üzerinden alınır ve `sosyal/ekran/` içinde tutulur (depoya girmez). Metinler `src/data/site.js`'den okunur; şablon `scripts/make-social.mjs` içindedir. Hesap ayarları, biyografi ve gönderi metinleri için `sosyal/instagram-rehber.md`.
+Instagram görselleri ve onları üreten script'ler bu depoda değil, yan klasör `corventech-instagram` içinde tutulur. Metinler bu projedeki `src/data/site.js` dosyasından okunur, bu yüzden iki klasör yan yana durmalıdır.
 
 ## Sayfa yapısı
 
