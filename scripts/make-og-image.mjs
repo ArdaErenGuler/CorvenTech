@@ -7,17 +7,18 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Resvg } from '@resvg/resvg-js';
+import { ventures } from '../src/data/site.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const output = path.join(root, 'public', 'og-cover.png');
 
 const COLORS = {
-  ink: '#0b0f19',
-  inkSoft: '#111625',
+  ink: '#0d0b17',
+  inkSoft: '#131022',
   heading: '#f8fafc',
-  muted: '#94a3b8',
-  accent: '#00b4d8',
-  accentLight: '#48cae4',
+  muted: '#a39cb8',
+  accent: '#7c3aed',
+  accentLight: '#a06cff',
   line: 'rgba(255,255,255,0.12)',
 };
 
@@ -31,9 +32,9 @@ const orbits = [
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="logo" gradientUnits="userSpaceOnUse" x1="8" y1="58" x2="56" y2="8">
-      <stop offset="0%" stop-color="#142c5a"/>
-      <stop offset="55%" stop-color="#2b5b9c"/>
-      <stop offset="100%" stop-color="#4287c8"/>
+      <stop offset="0%" stop-color="#2a1160"/>
+      <stop offset="55%" stop-color="#6330cc"/>
+      <stop offset="100%" stop-color="#8f5cf7"/>
     </linearGradient>
     <mask id="logoMask">
       <rect width="64" height="64" fill="#000"/>
@@ -60,7 +61,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" v
     <path d="M20.25 23H56L53.6 31H38.3L37.4 58H30.6L29.7 31H17.23A14.8 14.8 0 0 1 20.25 23Z" fill="url(#logo)"/>
   </g>
   <text x="218" y="132" font-family="Segoe UI" font-size="40" font-weight="700" fill="${COLORS.heading}">CorvenTech</text>
-  <text x="219" y="160" font-family="Segoe UI" font-size="17" font-weight="600" letter-spacing="3" fill="${COLORS.accent}">YAZILIM &amp; GİRİŞİM</text>
+  <text x="219" y="160" font-family="Segoe UI" font-size="17" font-weight="600" letter-spacing="3" fill="${COLORS.accentLight}">YAZILIM &amp; GİRİŞİM</text>
 
   <!-- Başlık -->
   <text x="96" y="330" font-family="Segoe UI" font-size="68" font-weight="700" fill="${COLORS.heading}">Fikirleri Gerçeğe Dönüştüren</text>
@@ -68,8 +69,8 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" v
 
   <!-- Girişimler -->
   <line x1="96" y1="486" x2="1104" y2="486" stroke="${COLORS.line}" stroke-width="1"/>
-  <text x="96" y="536" font-family="Segoe UI" font-size="22" font-weight="600" fill="${COLORS.muted}">GülerDepo · dersmate · SiteFlowTR · My-Gen Biyoteknoloji · Brox Digital</text>
-  <text x="96" y="576" font-family="Segoe UI" font-size="20" font-weight="600" fill="${COLORS.accent}">www.corventech.tr</text>
+  <text x="96" y="536" font-family="Segoe UI" font-size="22" font-weight="600" fill="${COLORS.muted}">${ventures.map((v) => v.name).join(' · ')}</text>
+  <text x="96" y="576" font-family="Segoe UI" font-size="20" font-weight="600" fill="${COLORS.accentLight}">www.corventech.tr</text>
 </svg>`;
 
 const renderer = new Resvg(svg, {

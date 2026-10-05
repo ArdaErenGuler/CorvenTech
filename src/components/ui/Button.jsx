@@ -3,9 +3,9 @@ import Icon from './Icon';
 const BASE =
   'group inline-flex items-center justify-center gap-2 rounded-lg font-semibold transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none disabled:opacity-60';
 
-// Camgöbeği zeminde metin koyu tutulur; beyaz metin kontrast sınırının altında kalır.
+// Koyu mor zeminde metin beyaz tutulur; koyu metin kontrast sınırının altında kalır.
 const VARIANTS = {
-  primary: 'bg-accent text-ink hover:bg-accent-light',
+  primary: 'bg-accent text-white hover:bg-accent-dark',
   secondary: 'border border-line-strong bg-surface-2 text-heading hover:border-line-accent hover:bg-surface-hover',
   ghost: 'border border-line text-body hover:border-line-strong hover:text-heading',
 };

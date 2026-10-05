@@ -35,14 +35,14 @@ function mark(fill, x, y, size) {
     </g>`;
 }
 
-// Zeminler koyu ama tam siyah değil; amblem canlı mavi tonlarında.
+// Zeminler koyu ama tam siyah değil; amblem mor tonlarında.
 const OPTIONS = [
-  { id: '1-degrade-camgobegi', label: 'Degrade camgöbeği→mavi', bg: '#0d1117', fg: ['#5bd8f0', '#0077b6'], scale: 0.6 },
-  { id: '2-marka-camgobegi', label: 'Marka camgöbeği (düz)', bg: '#0d1117', fg: '#00b4d8', scale: 0.6 },
-  { id: '3-gok-mavisi', label: 'Açık gök mavisi', bg: '#0d1117', fg: '#38bdf8', scale: 0.6 },
-  { id: '4-canli-mavi', label: 'Canlı mavi', bg: '#0f1218', fg: '#3b82f6', scale: 0.6 },
-  { id: '5-degrade-mavi', label: 'Degrade açık→koyu mavi', bg: '#0d1117', fg: ['#7cc6ff', '#1d4ed8'], scale: 0.6 },
-  { id: '6-tam-kadraj', label: 'Degrade, tam kadraj', bg: '#0d1117', fg: ['#5bd8f0', '#0077b6'], scale: 0.8 },
+  { id: '1-degrade-mor', label: 'Degrade açık→koyu mor', bg: '#110d1c', fg: ['#b48cff', '#5b21b6'], scale: 0.6 },
+  { id: '2-marka-moru', label: 'Marka moru (düz)', bg: '#110d1c', fg: '#7c3aed', scale: 0.6 },
+  { id: '3-acik-mor', label: 'Açık mor', bg: '#110d1c', fg: '#a06cff', scale: 0.6 },
+  { id: '4-canli-mor', label: 'Canlı mor', bg: '#0f0d14', fg: '#8b5cf6', scale: 0.6 },
+  { id: '5-degrade-mor-pembe', label: 'Degrade mor→pembe', bg: '#110d1c', fg: ['#e879f9', '#6d28d9'], scale: 0.6 },
+  { id: '6-tam-kadraj', label: 'Degrade, tam kadraj', bg: '#110d1c', fg: ['#b48cff', '#5b21b6'], scale: 0.8 },
 ];
 
 const S = 1080;

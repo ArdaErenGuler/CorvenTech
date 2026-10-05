@@ -42,7 +42,7 @@ export default function FounderCard({ founder }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${name} ${label} profili`}
-                  className="inline-flex items-center gap-2 py-1 text-sm font-medium text-accent transition-colors hover:text-accent-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                  className="inline-flex items-center gap-2 py-1 text-sm font-medium text-accent-light transition-colors hover:text-heading focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
                 >
                   <Icon name={key} className="size-4" strokeWidth={2} />
                   {label}

@@ -8,7 +8,7 @@ export default function SectionHeader({ index, tag, title, description }) {
     <div className="grid gap-x-12 gap-y-5 lg:grid-cols-12">
       <div className="lg:col-span-7">
         <p className="flex items-center gap-3 text-sm font-semibold">
-          {index && <span className="tabular-nums text-accent">{index}</span>}
+          {index && <span className="tabular-nums text-accent-light">{index}</span>}
           <span className="h-px w-8 bg-line-strong" aria-hidden="true" />
           <span className="text-muted">{tag}</span>
         </p>

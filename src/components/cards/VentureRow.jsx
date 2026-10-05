@@ -29,7 +29,7 @@ export default function VentureRow({ venture }) {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`${name} sitesini yeni sekmede aç`}
-            className="inline-flex min-w-0 items-center gap-1.5 text-sm font-semibold text-accent transition-colors hover:text-accent-light"
+            className="inline-flex min-w-0 items-center gap-1.5 text-sm font-semibold text-accent-light transition-colors hover:text-heading"
           >
             <span className="truncate">{hostOf(url)}</span>
             <Icon name="arrow-up-right" className="size-4 shrink-0" strokeWidth={2} />

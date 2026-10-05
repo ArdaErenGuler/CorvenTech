@@ -43,8 +43,8 @@ export default function HeroCanvas() {
 
     const pathsCtx = pathsCanvas.getContext('2d');
     const nodesCtx = nodesCanvas.getContext('2d');
-    const accent = readRgb('--color-accent', '0, 180, 216');
-    const accentLight = readRgb('--color-accent-light', '72, 202, 228');
+    const accent = readRgb('--color-accent', '124, 58, 237');
+    const accentLight = readRgb('--color-accent-light', '160, 108, 255');
 
     // Düğüm izinin yarıçapı ve rengi yalnızca sıraya bağlı: bir kez hesaplanır.
     const trail = Array.from({ length: TRAIL_LENGTH }, (_, index) => {

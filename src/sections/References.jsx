@@ -32,7 +32,7 @@ export default function References() {
                 {item.location && ` · ${item.location}`}
               </p>
 
-              <p className="mt-5 flex items-center gap-1.5 text-sm font-semibold text-accent">
+              <p className="mt-5 flex items-center gap-1.5 text-sm font-semibold text-accent-light">
                 {/* Punycode adres okunur hâliyle yazılır; uzun adres dar kartta alt satıra taşabilsin */}
                 <span className="min-w-0 break-words">{item.domain}</span>
                 <Icon

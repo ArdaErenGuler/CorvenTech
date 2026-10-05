@@ -16,7 +16,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Resvg } from '@resvg/resvg-js';
-import { company, ventures, hero, solutions, process as steps } from '../src/data/site.js';
+import { company, ventures, references, hero, solutions, process as steps } from '../src/data/site.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const outDir = path.join(root, 'sosyal');
@@ -24,16 +24,16 @@ const shotDir = path.join(outDir, 'ekran');
 fs.mkdirSync(outDir, { recursive: true });
 
 const C = {
-  ink: '#0b0f19',
-  inkSoft: '#111625',
-  surface: '#161c2e',
-  surface2: '#1c243a',
+  ink: '#0d0b17',
+  inkSoft: '#131022',
+  surface: '#1a162b',
+  surface2: '#211c36',
   heading: '#f8fafc',
-  body: '#e2e8f0',
-  muted: '#94a3b8',
-  dim: '#7b899d',
-  accent: '#00b4d8',
-  accentLight: '#48cae4',
+  body: '#e4e2ee',
+  muted: '#a39cb8',
+  dim: '#8a83a0',
+  accent: '#7c3aed',
+  accentLight: '#a06cff',
   line: 'rgba(255,255,255,0.12)',
   lineStrong: 'rgba(255,255,255,0.2)',
   light: '#f8fafc',
@@ -41,9 +41,9 @@ const C = {
 
 const FONT = 'Segoe UI';
 const LOGO_STOPS = [
-  ['0%', '#142c5a'],
-  ['55%', '#2b5b9c'],
-  ['100%', '#4287c8'],
+  ['0%', '#2a1160'],
+  ['55%', '#6330cc'],
+  ['100%', '#8f5cf7'],
 ];
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -181,7 +181,7 @@ const SHOT_H = 900;
 // Üstten kırpma: mygenbio'nun üst şeridinde müşterinin kişisel e-postası ve telefonu var, görsele girmesin.
 const SHOT_TOP = { mygen: 48 };
 // Alttan kırpma: çerez şeritleri ve sohbet balonu kadraja girmesin.
-const SHOT_BOTTOM = { dersmate: 90, mygen: 80, broxdigital: 90 };
+const SHOT_BOTTOM = { dersmate: 90, mygen: 180, broxdigital: 90 };
 
 /**
  * Ekran görüntüsünü tarayıcı çerçevesi içinde çizer; altına gölge, arkasına ışıma alır.
@@ -195,7 +195,7 @@ function browserShot(id, { x, y, w, h, url }) {
   const shadow = `shadow${uidLocal}`;
   const frame = `<defs><filter id="${shadow}" x="-20%" y="-20%" width="140%" height="160%"><feGaussianBlur stdDeviation="26"/></filter></defs>
     <rect x="${x + 10}" y="${y + 34}" width="${w - 20}" height="${bar + h}" rx="18" fill="#000" opacity="0.6" filter="url(#${shadow})"/>
-    <rect x="${x}" y="${y}" width="${w}" height="${bar + h}" rx="18" fill="#0f1420" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+    <rect x="${x}" y="${y}" width="${w}" height="${bar + h}" rx="18" fill="#120f1e" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
     ${[0, 1, 2].map((i) => `<circle cx="${x + 32 + i * 26}" cy="${y + bar / 2}" r="6.5" fill="rgba(255,255,255,0.22)"/>`).join('')}
     <rect x="${x + 124}" y="${y + bar / 2 - 15}" width="${Math.min(480, w - 170)}" height="30" rx="15" fill="rgba(255,255,255,0.08)"/>
     ${txt(url, { x: x + 146, y: y + bar / 2 + 8, size: 21, weight: 600, fill: C.muted })}
@@ -236,21 +236,22 @@ const made = [];
 
 /* ------------------------------------------------------------------ profil */
 
-// Kullanımdaki profil fotoğrafı: koyu antrasit zemin, sol alttan sağ üste camgöbeği→mavi degrade amblem.
+// Kullanımdaki profil fotoğrafı: mora çalan koyu zemin, sol alttan sağ üste açık mor→koyu mor degrade amblem.
 // Başka renk denemeleri için: node scripts/make-avatar.mjs
+const PROFILE_BG = '#110d1c';
 {
   const S = 1080;
   const size = 660;
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${S}" height="${S}" viewBox="0 0 ${S} ${S}">
-    <rect width="${S}" height="${S}" fill="#0d1117"/>
+    <rect width="${S}" height="${S}" fill="${PROFILE_BG}"/>
     ${emblem({
       x: (S - size) / 2,
       y: (S - size) / 2,
       size,
       // Degrade sol alttan (açık) sağ üste (koyu) akar; emblem() gradyanının yönü budur.
       stops: [
-        ['0%', '#5bd8f0'],
-        ['100%', '#0077b6'],
+        ['0%', '#b48cff'],
+        ['100%', '#5b21b6'],
       ],
     })}
   </svg>`;
@@ -260,8 +261,8 @@ const made = [];
 /* --------------------------------------------------------------- gönderiler */
 /*
  * Telefonda koyu modda akış ve profil ızgarası simsiyah; koyu düz zemin onunla birleşip
- * kenarsız bir leke gibi kalıyordu. Bu yüzden: zemin hafif maviye çalan degrade, ekran
- * görüntüsünün arkasında camgöbeği→mavi ışıma, büyük başlık, az ve iri metin, nokta ızgarası yok
+ * kenarsız bir leke gibi kalıyordu. Bu yüzden: zemin hafif mora çalan degrade, ekran
+ * görüntüsünün arkasında mor ışıma, büyük başlık, az ve iri metin, nokta ızgarası yok
  * (JPEG sıkıştırmasında kirli görünüyor). Izgara küçük karesinde de okunacak şekilde ölçülendi.
  */
 
@@ -270,8 +271,8 @@ const PH = 1350;
 const M = 84;
 const INNER = PW - M * 2;
 const MARK_STOPS = [
-  ['0%', '#5bd8f0'],
-  ['100%', '#0077b6'],
+  ['0%', '#b48cff'],
+  ['100%', '#5b21b6'],
 ];
 
 /** Zemin + ışıma. glowY: ışımanın merkezi (çerçevenin ortası). */
@@ -279,18 +280,18 @@ function backdrop(glowY) {
   const id = `bg${uid++}`;
   return `<defs>
       <linearGradient id="${id}-base" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#151d30"/><stop offset="100%" stop-color="#0b0f19"/>
+        <stop offset="0%" stop-color="#1b1530"/><stop offset="100%" stop-color="#0d0b17"/>
       </linearGradient>
-      <radialGradient id="${id}-cyan" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stop-color="#00b4d8" stop-opacity="0.42"/><stop offset="100%" stop-color="#00b4d8" stop-opacity="0"/>
+      <radialGradient id="${id}-violet" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.42"/><stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/>
       </radialGradient>
-      <radialGradient id="${id}-blue" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stop-color="#2563eb" stop-opacity="0.34"/><stop offset="100%" stop-color="#2563eb" stop-opacity="0"/>
+      <radialGradient id="${id}-purple" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#6d28d9" stop-opacity="0.38"/><stop offset="100%" stop-color="#6d28d9" stop-opacity="0"/>
       </radialGradient>
     </defs>
     <rect width="${PW}" height="${PH}" fill="url(#${id}-base)"/>
-    <ellipse cx="${PW * 0.3}" cy="${glowY - 40}" rx="700" ry="520" fill="url(#${id}-cyan)"/>
-    <ellipse cx="${PW * 0.8}" cy="${glowY + 120}" rx="620" ry="480" fill="url(#${id}-blue)"/>`;
+    <ellipse cx="${PW * 0.3}" cy="${glowY - 40}" rx="700" ry="520" fill="url(#${id}-violet)"/>
+    <ellipse cx="${PW * 0.8}" cy="${glowY + 120}" rx="620" ry="480" fill="url(#${id}-purple)"/>`;
 }
 
 /** Üst şerit: amblem + marka; sağda kenarlıklı etiket. */
@@ -356,7 +357,7 @@ function shotPost({ file, label, kicker, title, tagline, shot, url, items, right
   POSTS.push({
     file,
     svg: page(
-      `${txt(kicker.toLocaleUpperCase('tr-TR'), { x: M, y: 214, size: 26, weight: 700, fill: C.accent, spacing: 5 })}
+      `${txt(kicker.toLocaleUpperCase('tr-TR'), { x: M, y: 214, size: 26, weight: 700, fill: C.accentLight, spacing: 5 })}
     ${titleBlock.svg}
     ${tagBlock.svg}
     ${browserShot(shot, { x: M, y: frameY, w: INNER, h: frameH, url })}
@@ -375,15 +376,15 @@ shotPost({
   tagline: 'Girişimlerimiz, çözümlerimiz ve iletişim tek adreste.',
   shot: 'corventech',
   url: 'www.corventech.tr',
-  items: ['5 girişim', '6 çözüm', 'İletişim'],
+  items: [`${ventures.length} girişim`, `${references.length} referans`, `${solutions.length} çözüm`],
   right: 'Tanıtım',
 });
 
-// 02–06 — girişimler
+// 02–04 — girişimler (kendi ürünlerimiz)
 ventures.forEach((v, i) => {
   shotPost({
     file: `post-0${i + 2}-${v.id}.png`,
-    label: v.type === 'product' ? 'Ürün' : 'Web Sitesi',
+    label: 'Ürün',
     kicker: v.category,
     title: v.name,
     tagline: v.tagline,
@@ -391,6 +392,33 @@ ventures.forEach((v, i) => {
     url: host(v.url),
     items: v.modules.map((m) => m.name),
     right: v.status,
+  });
+});
+
+// 05–06 — müşteri siteleri. Sitedeki referans verisi yalnızca ad/kategori/adres tutar;
+// gönderideki kısa açıklama ve özellik etiketleri burada.
+const REFERENCE_POSTS = {
+  mygen: {
+    tagline: 'Laboratuvar ürünlerini bulup fiyat sorabileceğiniz katalog',
+    items: ['Ürün arama', 'Ürün karşılaştırma', 'Fiyat sorma formu'],
+  },
+  broxdigital: {
+    tagline: 'Dijital pazarlama ajansı için tek sayfalık tanıtım sitesi',
+    items: ['Hizmet tanıtımı', 'Referanslar', 'Sık sorulan sorular'],
+  },
+};
+Object.entries(REFERENCE_POSTS).forEach(([id, extra], i) => {
+  const r = references.find((ref) => ref.id === id);
+  shotPost({
+    file: `post-0${ventures.length + 2 + i}-${id}.png`,
+    label: 'Referans',
+    kicker: r.category,
+    title: r.name,
+    tagline: extra.tagline,
+    shot: id,
+    url: host(r.url),
+    items: extra.items,
+    right: 'Yayında',
   });
 });
 
@@ -408,7 +436,7 @@ ventures.forEach((v, i) => {
   POSTS.push({
     file: 'post-07-cozumler.png',
     svg: page(
-      `${txt('ÇÖZÜMLERİMİZ', { x: M, y: 214, size: 26, weight: 700, fill: C.accent, spacing: 5 })}
+      `${txt('ÇÖZÜMLERİMİZ', { x: M, y: 214, size: 26, weight: 700, fill: C.accentLight, spacing: 5 })}
     ${t.svg}
     ${rows}`,
       { label: 'Hizmetler', right: 'Detaylar sitede', glowY: 820 },
@@ -438,7 +466,7 @@ ventures.forEach((v, i) => {
   POSTS.push({
     file: 'post-08-surec.png',
     svg: page(
-      `${txt('SÜREÇ', { x: M, y: 214, size: 26, weight: 700, fill: C.accent, spacing: 5 })}
+      `${txt('SÜREÇ', { x: M, y: 214, size: 26, weight: 700, fill: C.accentLight, spacing: 5 })}
     ${t.svg}
     ${rows}`,
       { label: 'Süreç', right: '4 adım', glowY: 820 },
@@ -461,7 +489,7 @@ ventures.forEach((v, i) => {
   POSTS.push({
     file: 'post-09-teklif.png',
     svg: page(
-      `${txt('İLETİŞİM', { x: M, y: 214, size: 26, weight: 700, fill: C.accent, spacing: 5 })}
+      `${txt('İLETİŞİM', { x: M, y: 214, size: 26, weight: 700, fill: C.accentLight, spacing: 5 })}
     ${t.svg}
     ${list}
     <rect x="${M}" y="${boxY}" width="${INNER}" height="236" rx="20" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
@@ -496,12 +524,12 @@ for (const p of POSTS) made.push(render(p.file, p.svg, PW));
     ${orbits(SW / 2, 520, 0.8)}
     ${emblem({ x: (SW - 220) / 2, y: 410, size: 220 })}
     ${txt(company.name, { x: SW / 2, y: 730, size: 68, weight: 700, anchor: 'middle' })}
-    ${txt(company.brandSub.toLocaleUpperCase('tr-TR'), { x: SW / 2, y: 786, size: 26, weight: 700, fill: C.accent, spacing: 6, anchor: 'middle' })}
+    ${txt(company.brandSub.toLocaleUpperCase('tr-TR'), { x: SW / 2, y: 786, size: 26, weight: 700, fill: C.accentLight, spacing: 6, anchor: 'middle' })}
     ${head.svg}
     <line x1="${M}" y1="${head.end + 80}" x2="${M + 120}" y2="${head.end + 80}" stroke="${C.accent}" stroke-width="4"/>
     ${lines(wrap('Girişimlerimizi ve yaptığımız işleri sitemizde bir arada görebilirsiniz.', 38, SW - M * 2 - 80), { x: M, y: head.end + 170, size: 38, weight: 600, fill: C.muted, lh: 1.42 }).svg}
     <rect x="${M}" y="${SH - 420}" width="${SW - M * 2}" height="120" rx="12" fill="${C.accent}"/>
-    ${txt('www.corventech.tr', { x: SW / 2, y: SH - 342, size: 42, weight: 700, fill: C.ink, anchor: 'middle' })}
+    ${txt('www.corventech.tr', { x: SW / 2, y: SH - 342, size: 42, weight: 700, fill: '#fff', anchor: 'middle' })}
     ${txt('Bağlantı profilimizde', { x: SW / 2, y: SH - 240, size: 30, weight: 600, fill: C.muted, anchor: 'middle' })}
   </svg>`;
   made.push(render('hikaye-duyuru.png', svg, SW));

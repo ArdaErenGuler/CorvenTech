@@ -9,7 +9,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { ventures, company } from '../src/data/site.js';
+import { ventures, references, company } from '../src/data/site.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const outDir = path.join(root, 'sosyal', 'ekran');
@@ -30,6 +30,8 @@ if (!browser) {
 const TARGETS = [
   { id: 'corventech', url: company.url },
   ...ventures.map((v) => ({ id: v.id, url: v.url })),
+  // Instagram'da ayrı gönderisi olan referanslar (make-social.mjs → REFERENCE_POSTS)
+  ...references.filter((r) => ['mygen', 'broxdigital'].includes(r.id)).map((r) => ({ id: r.id, url: r.url })),
 ];
 
 for (const t of TARGETS) {

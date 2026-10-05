@@ -68,7 +68,7 @@ export default function MobileDrawer({ open, onClose, onContact, activeId }) {
                     onClick={onClose}
                     aria-current={isActive ? 'location' : undefined}
                     className={`flex items-center justify-between py-4 text-base font-medium transition-colors ${
-                      isActive ? 'text-accent' : 'text-body hover:text-heading'
+                      isActive ? 'text-accent-light' : 'text-body hover:text-heading'
                     }`}
                   >
                     {link.label}

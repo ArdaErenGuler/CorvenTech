@@ -10,29 +10,31 @@
    ========================================================================== */
 @theme {
   /* Zeminler */
-  --color-ink: #0b0f19;
-  --color-ink-soft: #111625;
-  --color-surface: #161c2e;
-  --color-surface-2: #1c243a;
-  --color-surface-hover: #222c45;
+  --color-ink: #0d0b17;
+  --color-ink-soft: #131022;
+  --color-surface: #1a162b;
+  --color-surface-2: #211c36;
+  --color-surface-hover: #282241;
 
   /* Metin */
   --color-heading: #f8fafc;
-  --color-body: #e2e8f0;
-  --color-muted: #94a3b8;
-  --color-dim: #7b899d;
+  --color-body: #e4e2ee;
+  --color-muted: #a39cb8;
+  --color-dim: #8a83a0;
 
   /* Vurgu */
-  --color-accent: #00b4d8;
-  --color-accent-light: #48cae4;
-  --color-accent-dark: #0096b7;
-  --color-accent-subtle: rgb(0 180 216 / 0.12);
-  --color-accent-border: rgb(0 180 216 / 0.25);
+  /* accent: dolgu ve ikonlar (koyu mor); accent-light: küçük metin ve bağlantılar
+     (koyu zeminde okunurluk için bir ton açık) */
+  --color-accent: #7c3aed;
+  --color-accent-light: #a06cff;
+  --color-accent-dark: #6425d0;
+  --color-accent-subtle: rgb(124 58 237 / 0.18);
+  --color-accent-border: rgb(124 58 237 / 0.4);
 
   /* Kenarlıklar */
   --color-line: rgb(255 255 255 / 0.12);
   --color-line-strong: rgb(255 255 255 / 0.2);
-  --color-line-accent: rgb(0 180 216 / 0.3);
+  --color-line-accent: rgb(124 58 237 / 0.5);
 
   /* Tipografi — tek aile */
   --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -151,7 +153,7 @@
 
   ::selection {
     background-color: var(--color-accent);
-    color: var(--color-ink);
+    color: #fff;
   }
 }
 

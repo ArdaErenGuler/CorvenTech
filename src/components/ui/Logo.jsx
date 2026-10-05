@@ -5,7 +5,7 @@ import { company } from '../../data/site';
  * CorvenTech amblemi — orijinal logo tasarımının vektör kopyası.
  * Kalın bir halka (C) ve içinden geçen T: çubuğun sol ucu halkanın iç kavisini izler, sağ ucu içe eğik kesilir;
  * gövde aşağı doğru hafif incelir ve halkanın altından taşar. Halka, T'nin kestiği yerlerde boşluk bırakacak
- * şekilde maskelenir. Renk, logodaki lacivert→mavi geçişin aynısıdır; tema renklerine bağlı değildir.
+ * şekilde maskelenir. Renk, koyu mor→açık mor geçiştir; tema renklerine bağlı değildir (favicon.svg ile eş tutulur).
  */
 const RING = { cx: 32, cy: 32, r: 21.2, width: 7.6 };
 const T_PATH = 'M20.25 23H56L53.6 31H38.3L37.4 58H30.6L29.7 31H17.23A14.8 14.8 0 0 1 20.25 23Z';
@@ -13,9 +13,9 @@ const T_PATH = 'M20.25 23H56L53.6 31H38.3L37.4 58H30.6L29.7 31H17.23A14.8 14.8 0
 const BAR_CUT = { x: 24, y: 20.4, width: 40, height: 13.2 };
 const STEM_CUT_PATH = 'M27.1 31H40.9L39.8 64H28.2Z';
 const GRADIENT = [
-  ['0%', '#142c5a'],
-  ['55%', '#2b5b9c'],
-  ['100%', '#4287c8'],
+  ['0%', '#2a1160'],
+  ['55%', '#6330cc'],
+  ['100%', '#8f5cf7'],
 ];
 
 export function LogoMark({ className = 'size-10' }) {

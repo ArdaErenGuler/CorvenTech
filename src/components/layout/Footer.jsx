@@ -39,7 +39,7 @@ export default function Footer() {
                 <li key={channel.id}>
                   <a
                     href={channel.url}
-                    className="inline-flex items-center gap-2 py-1 text-sm font-medium text-accent transition-colors hover:text-accent-light"
+                    className="inline-flex items-center gap-2 py-1 text-sm font-medium text-accent-light transition-colors hover:text-heading"
                     {...externalProps(channel)}
                   >
                     <Icon name={channel.icon} className="size-4" strokeWidth={2} />
